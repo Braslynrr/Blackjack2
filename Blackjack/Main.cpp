@@ -6,6 +6,6 @@ using std::endl;
 using std::getline;
 
 int main() {
-
+	cout << "hola" << endl;
 	return 0;
 }

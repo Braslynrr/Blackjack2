@@ -1,1 +1,5 @@
-#pragma once
+#ifndef JUGADORENERICO_H
+#define JUGADORENERICO_H
+
+
+#endif // JUGADORENERICO_H

@@ -1,1 +1,5 @@
-#pragma once
+#ifdef DEALER_H
+#define DEALER_H
+
+
+#endif // DEALER_H
