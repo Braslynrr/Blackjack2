@@ -1,8 +1,10 @@
 #ifndef JUGADORENERICO_H
 #define JUGADORENERICO_H
 //#include <sstream>
-#include <string>
 //#include <stdlib.h>
+
+
+#include <string>
 #include "mano.h"
 
 class jugadorGenerico
@@ -10,10 +12,10 @@ class jugadorGenerico
 	std::string nickname;
 	mano* mano1;
 public:
-	jugadorGenerico();
+	jugadorGenerico(std::string,mano *);
 	~jugadorGenerico();
 
-	carta* pedirCarta();
+	virtual carta* pedirCarta();
 	bool sePaso();
 };
 

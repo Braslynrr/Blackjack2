@@ -2,7 +2,7 @@
 #define JUGADOR_
 #include "JugadorGenerico.h"
 
-class jugador :jugadorGenerico
+class jugador :public jugadorGenerico
 {
 public:
 	jugador();

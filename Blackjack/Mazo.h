@@ -2,12 +2,13 @@
 #define MAZO_H
 //#include <sstream>
 //#include <string>
-//#include <stdlib.h>
-
+#include <stdlib.h>
+#include <time.h>
+#include "carta.h"
 class mazo
 {
 private:
-	carta* cartas[];
+	carta* cartas[52];
 public:
 	mazo();
 	~mazo();

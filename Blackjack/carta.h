@@ -1,8 +1,7 @@
 #ifndef CARTA_H
 #define CARTA_H
-//#include <sstream>
-//#include <string>
-//#include <stdlib.h>
+#include <iostream>
+
 class carta
 {
 private:
@@ -10,12 +9,11 @@ private:
 	int palo;
 	bool bocaAbajo;
 public:
-	carta();
+	carta(int,int);
 	~carta();
-	void getvalor();
-	void getpalo();
+	int getvalor();
+	int getpalo();
 	bool voltear();
-
-
+	friend std::ostream& operator<<(std::ostream&, const carta &);
 };
 #endif // !CARTA_H
