@@ -1,7 +1,6 @@
-#pragma once
-#include <sstream>
-#include <string>
-#include <stdlib.h>
+//#include <sstream>
+//#include <string>
+//#include <stdlib.h>
 #include "jugadorGenerico.h"
 class nodo
 {
@@ -13,4 +12,5 @@ public:
 	~nodo();
 	nodo* getNextNodo();
 };
+
 

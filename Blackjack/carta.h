@@ -1,7 +1,8 @@
-#pragma once
-#include <sstream>
-#include <string>
-#include <stdlib.h>
+#ifndef CARTA_H
+#define CARTA_H
+//#include <sstream>
+//#include <string>
+//#include <stdlib.h>
 class carta
 {
 private:
@@ -14,4 +15,7 @@ public:
 	void getvalor();
 	void getpalo();
 	bool voltear();
+
+
 };
+#endif // !CARTA_H

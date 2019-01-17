@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NODO_H
+#define NODO_H
 #include "nodo.h"
 class lista
 {
@@ -13,3 +14,7 @@ public:
 	bool listaVacia();
 
 };
+
+#endif // !NODO_H
+
+

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef JUEGO_H
+#define JUEGO_H
 #include "lista.h"
 #include "Mazo.h"
 
@@ -12,3 +13,4 @@ public:
 	~juego();
 	void jugar();
 };
+#endif // !JUEGO_H

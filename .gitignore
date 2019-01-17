@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs
+/Blackjack/x64/Debug/Blackjack.tlog
+/Blackjack/x64/Debug/Blackjack.log
+/Blackjack/x64/Debug/Main.obj
+/Blackjack/x64/Debug/vc141.idb
+/Blackjack/x64/Debug/vc141.pdb
+/x64/Debug

@@ -1,8 +1,8 @@
-#pragma once
-#include <sstream>
+#ifndef JUGADORENERICO_H
+#define JUGADORENERICO_H
+//#include <sstream>
 #include <string>
-#include <stdlib.h>
-
+//#include <stdlib.h>
 #include "mano.h"
 
 class jugadorGenerico
@@ -16,3 +16,5 @@ public:
 	carta* pedirCarta();
 	bool sePaso();
 };
+
+#endif // JUGADORENERICO_H

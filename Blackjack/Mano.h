@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MANO_H
+#define MANO_H
 #include "mazo.h"
 #include "carta.h"
 class mano
@@ -13,4 +14,6 @@ public:
 	void limpiar();
 	int getPuntos();
 };
+#endif 
+
 

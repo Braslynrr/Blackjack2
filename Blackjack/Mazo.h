@@ -1,7 +1,8 @@
-#pragma once
-#include <sstream>
-#include <string>
-#include <stdlib.h>
+#ifndef MAZO_H
+#define MAZO_H
+//#include <sstream>
+//#include <string>
+//#include <stdlib.h>
 
 class mazo
 {
@@ -15,4 +16,7 @@ public:
 	void barajar();
 	carta* tomarCarta();
 };
+
+
+#endif // !1
 
