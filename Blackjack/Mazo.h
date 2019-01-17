@@ -1,5 +1,18 @@
-#ifndef MAZO_H
-#define MAZO_H
+#pragma once
+#include <sstream>
+#include <string>
+#include <stdlib.h>
 
+class mazo
+{
+private:
+	carta* cartas[];
+public:
+	mazo();
+	~mazo();
 
-#endif // !1
+	void inicializar();
+	void barajar();
+	carta* tomarCarta();
+};
+

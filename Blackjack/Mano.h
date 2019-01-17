@@ -1,3 +1,16 @@
-#ifndef MANO_H
-#define MANO_H
-#endif // !MANO_H
+#pragma once
+#include "mazo.h"
+#include "carta.h"
+class mano
+{
+private:
+	carta cartas[];
+public:
+	mano();
+	~mano();
+
+	void agregarCarta(mazo*);
+	void limpiar();
+	int getPuntos();
+};
+

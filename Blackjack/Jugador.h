@@ -1,4 +1,11 @@
-#ifndef JUGADOR_H
-#define JUGADOR_
+#pragma once
+#include "JugadorGenerico.h"
 
-#endif // !JUGADOR_H
+class jugador :jugadorGenerico
+{
+public:
+	jugador();
+	~jugador();
+	carta* pedirCarta();
+};
+

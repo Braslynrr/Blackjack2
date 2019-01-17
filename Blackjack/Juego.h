@@ -1,5 +1,14 @@
-#ifndef JUEGO_H
-#define JUEGO_H
+#pragma once
+#include "lista.h"
+#include "Mazo.h"
 
-
-#endif // !JUEGO_H
+class juego
+{
+private:
+	lista listaJugadores();
+	mazo baraja();
+public:
+	juego();
+	~juego();
+	void jugar();
+};

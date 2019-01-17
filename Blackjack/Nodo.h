@@ -1,6 +1,16 @@
-#ifndef NODO_H
-#define NODO_H
-
-
-#endif // !NODO_H
+#pragma once
+#include <sstream>
+#include <string>
+#include <stdlib.h>
+#include "jugadorGenerico.h"
+class nodo
+{
+private:
+	nodo* next;
+	jugadorGenerico* dato;
+public:
+	nodo();
+	~nodo();
+	nodo* getNextNodo();
+};
 

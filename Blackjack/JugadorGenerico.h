@@ -1,5 +1,18 @@
-#ifndef JUGADORENERICO_H
-#define JUGADORENERICO_H
+#pragma once
+#include <sstream>
+#include <string>
+#include <stdlib.h>
 
+#include "mano.h"
 
-#endif // JUGADORENERICO_H
+class jugadorGenerico
+{
+	std::string nickname;
+	mano* mano1;
+public:
+	jugadorGenerico();
+	~jugadorGenerico();
+
+	carta* pedirCarta();
+	bool sePaso();
+};
