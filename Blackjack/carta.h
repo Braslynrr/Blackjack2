@@ -5,15 +5,15 @@
 class carta
 {
 private:
-	int valor;
-	int palo;
+	short int valor;
+	char palo;
 	bool bocaAbajo;
 public:
-	carta(int,int);
+	carta(short int,char);
 	~carta();
 	int getvalor();
 	int getpalo();
 	bool voltear();
-	friend std::ostream& operator<<(std::ostream&, const carta &);
+	friend std::ostream& operator<<(std::ostream&, const carta *);
 };
 #endif // !CARTA_H

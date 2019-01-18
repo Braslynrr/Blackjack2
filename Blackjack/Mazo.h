@@ -9,10 +9,11 @@ class mazo
 {
 private:
 	carta* cartas[52];
+	short int cartaact;
 public:
 	mazo();
 	~mazo();
-
+	friend std::ostream& operator<<(std::ostream&, mazo *);
 	void inicializar();
 	void barajar();
 	carta* tomarCarta();

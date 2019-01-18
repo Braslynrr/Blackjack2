@@ -1,6 +1,6 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
-#include "carta.h"
+#include "Mazo.h"
 
 using std::cout;
 using std::cin;
@@ -8,8 +8,8 @@ using std::endl;
 using std::getline;
 
 int main() {
-	carta C1(5, 1);
-	C1.voltear();
-	cout << C1;
+	mazo* maso1=new mazo;
+	maso1->barajar();
+	cout <<maso1->tomarCarta();
 	return 0;
 }

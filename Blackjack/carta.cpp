@@ -1,6 +1,6 @@
-#include "carta.h"
+﻿#include "carta.h"
 
-carta::carta(int V, int P):valor(V),palo(P),bocaAbajo(true){}
+carta::carta(short int V,char P):valor(V),palo(P),bocaAbajo(false){}
 
 carta::~carta(){}
 
@@ -23,10 +23,10 @@ bool carta::voltear()
 	return true;
 }
 
-std::ostream& operator<<(std::ostream&out,const carta &C)// cambiar a punteros , son referencias por testing
+std::ostream& operator<<(std::ostream&out,const carta *C)
 {
 
-	if (C.bocaAbajo)
+	if (C->bocaAbajo)
 	{
 		out << " ________" << std::endl;
 		out << "|        |" << std::endl;
@@ -39,11 +39,30 @@ std::ostream& operator<<(std::ostream&out,const carta &C)// cambiar a punteros ,
 		out << "_________" << std::endl;
 		out << "|        |" << std::endl;
 		out << "|        |" << std::endl;
-		C.valor == 1 ? out << "|  " << C.palo << " " << C.valor << "   |" << std::endl : out << "|    " << C.palo << "" << "   |" << std::endl;
+		switch (C->valor)
+		{
+		case 1:
+			out << "|  A " << C->palo <<"   |" << std::endl;
+			break;
+		case 10:
+			out << "|  " << C->valor <<" "<< C->palo << "  |" << std::endl;
+			break;
+		case 11:
+			out << "|  J " << C->palo << "   |" << std::endl;
+			break;
+		case 12:
+			 out << "|  Q " << C->palo << "   |" << std::endl;
+			break;
+		case 13:
+			out << "|  K " << C->palo << "   |" << std::endl ;
+			break;
+		default:
+			out << "|  " << C->valor << " " << C->palo << "   |" << std::endl;
+			break;
+		}
 		out << "|        |" << std::endl;
 		out << "|        |" << std::endl;
-		out << " --------" << std::endl;
-		
+		out << " --------"<< std::endl;
 	}
 	return out;
 }
