@@ -31,12 +31,12 @@ int mano::getPuntos() // faltan validaciones
 {
 	int suma; 
 	for (int i = 0; i < cantidad; i++)
-		suma = suma + cartas[i]->getvalor;
+		suma = suma + cartas[i]->getvalor();
 
 	if (suma > 21)
 	{
 		for (int i = 0; i < cantidad; i++)
-			if (cartas[i]->getvalor == 11)
+			if (cartas[i]->getvalor() == 11)
 			{
 				suma = suma - 10;
 				break;

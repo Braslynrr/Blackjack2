@@ -5,10 +5,12 @@
 class jugador :public jugadorGenerico
 {
 public:
-	jugador(std::string,mano*);
+	jugador();
+	jugador(std::string, mano*);
 	~jugador();
 	carta* pedirCarta();
 };
+
 #endif // !JUGADOR_H
 
 
