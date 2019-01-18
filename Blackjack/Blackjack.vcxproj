@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="carta.cpp" />
+    <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="JugadorGenerico.cpp" />
     <ClCompile Include="Main.cpp" />

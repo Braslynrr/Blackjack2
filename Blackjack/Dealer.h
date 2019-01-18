@@ -3,10 +3,10 @@
 
 #include "jugadorGenerico.h"
 
-class dealer :jugadorGenerico
+class dealer : public jugadorGenerico
 {
 public:
-	dealer();
+	dealer(mano*);
 	~dealer();
 	carta* pedirCarta();
 	void volteaSegunda();

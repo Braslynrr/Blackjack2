@@ -1,10 +1,11 @@
 #ifndef NODO_H
 #define NODO_H
 #include "nodo.h"
+
 class lista
 {
 private:
-	nodo inicio;
+	struct nodo* inicio;
 public:
 	lista();
 	~lista();

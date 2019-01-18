@@ -62,7 +62,7 @@
     <ClCompile Include="mano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Nodo.cpp">
+    <ClCompile Include="Dealer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
