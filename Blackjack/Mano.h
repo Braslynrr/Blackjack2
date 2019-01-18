@@ -15,6 +15,7 @@ public:
 	void agregarCarta(mazo*);
 	void limpiar();
 	int getPuntos();
+	void acomodarCartas();
 };
 #endif 
 

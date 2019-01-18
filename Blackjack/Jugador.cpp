@@ -2,8 +2,8 @@
 
 jugador::jugador(std::string Nombre, mano* Mano)
 {
-	setNickname(Nombre);
-	setMano(Mano);
+	nickname = Nombre;
+	mano1 = Mano;
 }
 
 jugador::~jugador()
