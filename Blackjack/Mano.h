@@ -2,10 +2,12 @@
 #define MANO_H
 #include "mazo.h"
 #include "carta.h"
+#include "Nodo.h"
 class mano
 {
 private:
-	carta cartas[];
+	carta** cartas;
+	int cantidad;
 public:
 	mano();
 	~mano();
