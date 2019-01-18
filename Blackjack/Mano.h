@@ -1,18 +1,18 @@
 #ifndef MANO_H
 #define MANO_H
-#include "mazo.h"
+#include "Mazo.h"
 #include "carta.h"
-#include "Nodo.h"
-class mano
+
+class Mano
 {
 private:
 	carta** cartas;
 	int cantidad;
 public:
-	mano();
-	~mano();
+	Mano();
+	~Mano();
 
-	void agregarCarta(mazo*);
+	void agregarCarta(Mazo*);
 	void limpiar();
 	int getPuntos();
 	void acomodarCartas();

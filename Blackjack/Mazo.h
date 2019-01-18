@@ -5,15 +5,15 @@
 #include <stdlib.h>
 #include <time.h>
 #include "carta.h"
-class mazo
+class Mazo
 {
 private:
 	carta* cartas[52];
 	short int cartaact;
 public:
-	mazo();
-	~mazo();
-	friend std::ostream& operator<<(std::ostream&, mazo *);
+	Mazo();
+	~Mazo();
+	friend std::ostream& operator<<(std::ostream&, Mazo *);
 	void inicializar();
 	void barajar();
 	carta* tomarCarta();

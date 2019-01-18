@@ -8,8 +8,10 @@ using std::endl;
 using std::getline;
 
 int main() {
-	mazo* maso1=new mazo;
-	maso1->barajar();
-	cout <<maso1->tomarCarta();
+	Mazo* Maso1=new Mazo;
+	Maso1->barajar();
+	cout <<Maso1->tomarCarta();
+	cout << Maso1->tomarCarta();
+	cout << Maso1->tomarCarta();
 	return 0;
 }

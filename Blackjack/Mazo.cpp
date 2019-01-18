@@ -1,20 +1,20 @@
 #include "Mazo.h"
 
-mazo::mazo()
+Mazo::Mazo()
 {
 	for (short int n = 0; n < 52; n++)
 		cartas[n] = nullptr;
 	cartaact = -1;
 }
 
-mazo::~mazo()
+Mazo::~Mazo()
 {
 		delete[] cartas;
 	for (short int n = 0; n < 52; n++)
 		cartas[n] = nullptr;
 }
 
-void mazo::inicializar()
+void Mazo::inicializar()
 {
 	delete[] cartas;
 	for (short int n = 0; n < 52; n++)
@@ -22,7 +22,7 @@ void mazo::inicializar()
 	cartaact = -1;
 }
 
-void mazo::barajar(){
+void Mazo::barajar(){
 	short int baraja=0;
 	srand(time(NULL));
 
@@ -50,13 +50,13 @@ void mazo::barajar(){
 	}
 }
 
-carta * mazo::tomarCarta()
+carta * Mazo::tomarCarta()
 {
 	cartaact++;
 	return cartas[cartaact];
 }
 
-std::ostream & operator<<(std::ostream &out, mazo * Mazo)
+std::ostream & operator<<(std::ostream &out, Mazo * Mazo)
 {
 	for (short i = 0; i < 52; i++)
 	{

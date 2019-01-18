@@ -59,13 +59,13 @@
     <ClCompile Include="Mazo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mano.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Dealer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="lista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

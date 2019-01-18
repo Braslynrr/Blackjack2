@@ -11,12 +11,12 @@ class jugadorGenerico
 {
 protected:
 	std::string nickname;
-	mano* mano1;
+	Mano* mano1;
 public:
-	jugadorGenerico(std::string= " " , mano * =  NULL);
+	jugadorGenerico(std::string= " " , Mano * =  NULL);
 	~jugadorGenerico();
 
-	virtual carta* pedirCarta();                                                                                                                                                                                                                                                                                                                                                  
+	virtual carta* pedirCarta()=0;                                                                                                                                                                                                                                                                                                                                                  
 	bool sePaso();
 };
 

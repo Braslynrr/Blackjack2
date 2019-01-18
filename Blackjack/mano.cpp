@@ -1,6 +1,6 @@
 #include "Mano.h"
 
-mano::mano()
+Mano::Mano()
 {
 	cantidad = 0;
 	cartas = new carta*[13];
@@ -9,25 +9,25 @@ mano::mano()
 
 }
 
-mano::~mano()
+Mano::~Mano()
 {
 	for (int i = 0; i < 13; i++)
 		delete cartas[i];
 	delete[] cartas;
 }
 
-void mano::agregarCarta(mazo * Mazo)
+void Mano::agregarCarta(Mazo * Mazo)
 {
 	cartas[cantidad] = Mazo->tomarCarta();
 }
 
-void mano::limpiar()
+void Mano::limpiar()
 {
 	for (int i = 0; i < cantidad; i++)
 		cartas[i] = NULL;
 }
 
-int mano::getPuntos() // faltan validaciones
+int Mano::getPuntos() // faltan validaciones
 {
 	int suma=0; 
 	for (int i = 0; i < cantidad; i++)
@@ -62,7 +62,7 @@ int mano::getPuntos() // faltan validaciones
 	return suma;
 }
 
-void mano::acomodarCartas()
+void Mano::acomodarCartas()
 {
 	int cont=0;
 	carta* aux;

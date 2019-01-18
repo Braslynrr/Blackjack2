@@ -135,7 +135,7 @@
     <ClCompile Include="JugadorGenerico.cpp" />
     <ClCompile Include="lista.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="mano.cpp" />
+    <ClCompile Include="Mano.cpp" />
     <ClCompile Include="Mazo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
