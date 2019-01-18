@@ -5,7 +5,7 @@
 
 
 #include <string>
-#include "mano.h"
+#include "Mano.h"
 
 class jugadorGenerico
 {
@@ -16,8 +16,6 @@ public:
 	jugadorGenerico(std::string= " " , mano * =  NULL);
 	~jugadorGenerico();
 
-	void setNickname(std::string);
-	void setMano(mano*);
 	virtual carta* pedirCarta();                                                                                                                                                                                                                                                                                                                                                  
 	bool sePaso();
 };
