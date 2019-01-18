@@ -10,6 +10,17 @@ jugadorGenerico::~jugadorGenerico()
 {
 }
 
+void jugadorGenerico::setNickname(std::string Nombre)
+{
+	nickname = Nombre;
+
+}
+
+void jugadorGenerico::setMano(mano * Mano)
+{
+	mano1 = Mano;
+}
+
 carta * jugadorGenerico::pedirCarta()
 {
 	return nullptr;
