@@ -54,9 +54,10 @@ int Mano::getPuntos() // faltan validaciones
 		{
 			if (cartas[i]->getvalor() == 1)
 			{
-				suma = suma - 10;
+				suma = suma + 10;
 				
-				if (suma < 21)
+				if (suma > 21)
+					suma -= 10;
 					break;
 			}
 		}
