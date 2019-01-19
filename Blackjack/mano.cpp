@@ -22,6 +22,7 @@ void Mano::agregarCarta(Mazo * Mazo)
 	{
 		cartas[cantidad] = Mazo->tomarCarta();
 		cantidad++;
+	
 	}
 }
 
@@ -33,6 +34,7 @@ void Mano::limpiar()
 
 int Mano::getPuntos() // faltan validaciones
 {
+	int cont = 0;
 	acomodarCartas();
 	int suma=0; 
 	for (int i = 0; i < cantidad; i++)
@@ -41,28 +43,24 @@ int Mano::getPuntos() // faltan validaciones
 			suma = suma + 10;
 
 		else if (cartas[i]->getvalor() == 1)
+		{
 			suma = suma + cartas[i]->getvalor() + 10;
+			cont = cont + 1;
+		}
 
 		else
 			suma = suma + cartas[i]->getvalor();
 	}
 
-	bool flag=false;
-	do
-	{
-		for (int i = 0; i < cantidad; i++)
-		{
-			if (cartas[i]->getvalor() == 1)
-			{
-				suma = suma + 10;
-				
-				if (suma > 21)
-					suma -= 10;
-					break;
-			}
-		}
-		flag = true;
-	} while (suma > 21 || flag == false);
+	if (cont == 2 && suma > 21)
+		suma = suma - 10;
+	else if (cont == 3 && suma > 21)
+		suma = suma - 20;
+	else if (cont == 4 && suma > 21)
+		suma = suma - 30;
+
+
+	
 
 	return suma;
 }

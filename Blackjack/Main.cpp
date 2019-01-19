@@ -14,8 +14,11 @@ int main() {
 	maz->barajar();
 	man->agregarCarta(maz);
 	man->agregarCarta(maz);
+
 	cout << man->getCarta(0)<<endl;
 	cout << man->getCarta(1)<<endl;
+	
+
 	cout << man->getPuntos();
 	system("pause");
 	bool salir = false;
