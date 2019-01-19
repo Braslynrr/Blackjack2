@@ -5,10 +5,8 @@
 #include "jugadorGenerico.h"
 
 	struct Nodo {
-		jugadorGenerico* dato;
+		jugadorGenerico* Player;
 		struct Nodo *next;
-		Nodo();
-		~Nodo();
 	};
 
 
