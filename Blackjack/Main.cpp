@@ -9,12 +9,6 @@ using std::endl;
 using std::getline;
 
 int main() {
-	Mazo* maz = new Mazo;
-	cout << maz;
-	system("pause");
-	maz->barajar();
-	cout << maz;
-	system("pause");
 	bool salir = false;
 	char menu=' ';
 	do {

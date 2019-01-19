@@ -4,6 +4,7 @@
 //#include <string>
 #include <stdlib.h>
 #include <time.h>
+#include <Windows.h>
 #include "carta.h"
 class Mazo
 {

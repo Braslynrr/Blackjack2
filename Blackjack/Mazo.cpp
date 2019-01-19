@@ -76,14 +76,39 @@ void Mazo::intercambiar(short int Pos1, short int Pos2)
 }
 
 void Mazo::barajar(){
+	srand(time(NULL));
 	short int bara1;
 	short int bara2;
-	for (short int i = 0; i < 52; i++)
+	for (short int i = 0; i < 9; i++)
 	{
-		srand(time(NULL));
-		bara1 = rand() % 53;
-		bara2 = rand() % 53;
+	
+		bara1 = rand() % 13;
+		bara2 = rand() % 38+13;
 		intercambiar(bara1, bara2);
+	}
+	for (short int i = 0; i < 9; i++)
+	{
+		/*srand(time(NULL));*/
+		bara1 = rand() % 13;
+		bara2 = rand() % 13;
+		intercambiar(bara1, bara2);
+		Sleep(10);
+	}
+	for (short int i = 0; i < 9; i++)
+	{
+	/*	srand(time(NULL));*/
+		bara1 = rand() % 38+13;
+		bara2 = rand() % 38+13;
+		intercambiar(bara1, bara2);
+		Sleep(10);
+	}
+	for (short int i = 0; i < 9; i++)
+	{
+	/*	srand(time(NULL));*/
+		bara1 = rand() % 39+13;
+		bara2 = rand() % 13+26;
+		intercambiar(bara1, bara2);
+		Sleep(10);
 	}
 }
 
