@@ -32,7 +32,7 @@ void Mano::limpiar()
 		cartas[i] = NULL;
 }
 
-int Mano::getPuntos() // faltan validaciones
+int Mano::getPuntos() 
 {
 	int cont = 0;
 	acomodarCartas();
@@ -47,20 +47,18 @@ int Mano::getPuntos() // faltan validaciones
 			suma = suma + cartas[i]->getvalor() + 10;
 			cont = cont + 1;
 		}
-
 		else
 			suma = suma + cartas[i]->getvalor();
 	}
 
-	if (cont == 2 && suma > 21)
+	if (cont == 1 && suma > 21)
+		suma = suma - 10;
+	else if (cont == 2 && suma > 21)
 		suma = suma - 10;
 	else if (cont == 3 && suma > 21)
 		suma = suma - 20;
 	else if (cont == 4 && suma > 21)
 		suma = suma - 30;
-
-
-	
 
 	return suma;
 }

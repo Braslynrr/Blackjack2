@@ -11,7 +11,7 @@ jugador::~jugador()
 {
 }
 
-carta * jugador::pedirCarta()
+carta * jugador::pedirCarta(Mazo* m)
 {
-	return nullptr;
+	mano1->agregarCarta(m);
 }

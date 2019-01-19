@@ -8,7 +8,7 @@ class dealer : public jugadorGenerico
 public:
 	dealer(Mano*);
 	~dealer();
-	carta* pedirCarta();
+	carta* pedirCarta(Mazo*);
 	void volteaSegunda();
 };
 

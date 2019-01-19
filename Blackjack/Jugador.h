@@ -8,7 +8,7 @@ public:
 	jugador();
 	jugador(std::string, Mano*);
 	~jugador();
-	carta* pedirCarta();
+	carta* pedirCarta(Mazo*);
 };
 
 #endif // !JUGADOR_H

@@ -10,7 +10,7 @@ dealer::~dealer()
 {
 }
 
-carta * dealer::pedirCarta()
+carta * dealer::pedirCarta(Mazo* m)
 {
-	return nullptr;
+	mano1->agregarCarta(m);
 }
