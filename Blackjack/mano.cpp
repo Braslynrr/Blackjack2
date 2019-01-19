@@ -47,11 +47,10 @@ int Mano::getPuntos() // faltan validaciones
 			suma = suma + cartas[i]->getvalor();
 	}
 
-	int cont = 4;
 	bool flag=false;
 	do
 	{
-		for (int i = cantidad - cont; i < cantidad; i++)
+		for (int i = 0; i < cantidad; i++)
 		{
 			if (cartas[i]->getvalor() == 1)
 			{

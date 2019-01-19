@@ -9,6 +9,15 @@ using std::endl;
 using std::getline;
 
 int main() {
+	Mazo* maz = new Mazo;
+	Mano* man = new Mano;
+	maz->barajar();
+	man->agregarCarta(maz);
+	man->agregarCarta(maz);
+	cout << man->getCarta(0)<<endl;
+	cout << man->getCarta(1)<<endl;
+	cout << man->getPuntos();
+	system("pause");
 	bool salir = false;
 	char menu=' ';
 	do {

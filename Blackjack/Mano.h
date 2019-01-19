@@ -2,7 +2,7 @@
 #define MANO_H
 #include "Mazo.h"
 #include "carta.h"
-#include <string>
+#include <String>
 #include <sstream>
 
 class Mano

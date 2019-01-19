@@ -81,14 +81,12 @@ void Mazo::barajar(){
 	short int bara2;
 	for (short int i = 0; i < 9; i++)
 	{
-	
 		bara1 = rand() % 13;
 		bara2 = rand() % 38+13;
 		intercambiar(bara1, bara2);
 	}
 	for (short int i = 0; i < 9; i++)
 	{
-		/*srand(time(NULL));*/
 		bara1 = rand() % 13;
 		bara2 = rand() % 13;
 		intercambiar(bara1, bara2);
@@ -96,19 +94,15 @@ void Mazo::barajar(){
 	}
 	for (short int i = 0; i < 9; i++)
 	{
-	/*	srand(time(NULL));*/
 		bara1 = rand() % 38+13;
 		bara2 = rand() % 38+13;
-		intercambiar(bara1, bara2);
-		Sleep(10);
+
 	}
 	for (short int i = 0; i < 9; i++)
 	{
-	/*	srand(time(NULL));*/
 		bara1 = rand() % 39+13;
 		bara2 = rand() % 13+26;
 		intercambiar(bara1, bara2);
-		Sleep(10);
 	}
 }
 
