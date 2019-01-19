@@ -15,6 +15,7 @@ public:
 	~Mazo();
 	friend std::ostream& operator<<(std::ostream&, Mazo *);
 	void inicializar();
+	void intercambiar(short int,short int);
 	void barajar();
 	carta* tomarCarta();
 };
