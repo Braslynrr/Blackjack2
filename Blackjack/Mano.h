@@ -2,6 +2,8 @@
 #define MANO_H
 #include "Mazo.h"
 #include "carta.h"
+#include <string>
+#include <sstream>
 
 class Mano
 {
@@ -16,6 +18,9 @@ public:
 	void limpiar();
 	int getPuntos();
 	void acomodarCartas();
+	carta* getCarta(int);
+	int getCantidad();
+	std::string mostrar();
 };
 #endif 
 

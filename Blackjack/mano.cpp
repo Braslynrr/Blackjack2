@@ -18,7 +18,11 @@ Mano::~Mano()
 
 void Mano::agregarCarta(Mazo * Mazo)
 {
-	cartas[cantidad] = Mazo->tomarCarta();
+	if (cantidad < 13)
+	{
+		cartas[cantidad] = Mazo->tomarCarta();
+		cantidad++;
+	}
 }
 
 void Mano::limpiar()
@@ -29,6 +33,7 @@ void Mano::limpiar()
 
 int Mano::getPuntos() // faltan validaciones
 {
+	acomodarCartas();
 	int suma=0; 
 	for (int i = 0; i < cantidad; i++)
 	{
@@ -51,7 +56,7 @@ int Mano::getPuntos() // faltan validaciones
 			if (cartas[i]->getvalor() == 1)
 			{
 				suma = suma - 10;
-				cont -= 1;
+				
 				if (suma < 21)
 					break;
 			}
@@ -77,4 +82,25 @@ void Mano::acomodarCartas()
 			cartas[cantidad - 1] = aux;
 			cont += 1;
 		}
+}
+
+carta * Mano::getCarta(int i)
+{
+	
+ 	 return  cartas[i];
+}
+
+int Mano::getCantidad()
+{
+	return cantidad;
+}
+
+std::string Mano::mostrar()
+{
+	std::stringstream s;
+
+	for (int i = 0; i < cantidad; i++)
+		s << cartas[i]<<"\n";
+
+	return s.str();
 }
