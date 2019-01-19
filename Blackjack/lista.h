@@ -1,5 +1,5 @@
-#ifndef NODO_H
-#define NODO_H
+#ifndef LISTA_H
+#define LISTA_H
 #include "Nodo.h"
 #include "JugadorGenerico.h"
 class lista

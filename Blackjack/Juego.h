@@ -6,8 +6,8 @@
 class juego
 {
 private:
-	lista listaJugadores();
-	mazo baraja();
+	lista listaJugadores;
+	Mazo baraja;
 public:
 	juego();
 	~juego();
