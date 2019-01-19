@@ -109,7 +109,11 @@ void Mazo::barajar(){
 carta * Mazo::tomarCarta()
 {
 	cartaact++;
-	return cartas[cartaact];
+	if (cartaact<=51)
+	{
+		return cartas[cartaact];
+	}
+	return nullptr;
 }
 
 std::ostream & operator<<(std::ostream &out, Mazo * Mazo)
