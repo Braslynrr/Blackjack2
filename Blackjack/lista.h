@@ -1,17 +1,17 @@
-#ifndef NODO_H
-#define NODO_H
-#include "nodo.h"
-
+#ifndef LISTA_H
+#define LISTA_H
+#include "Nodo.h"
+#include "JugadorGenerico.h"
 class lista
 {
 private:
-	struct nodo* inicio;
+	struct Nodo* inicio;
 public:
 	lista();
 	~lista();
-	nodo* getInicio();
-	void insertar(nodo);
-	void borrar(nodo);
+	Nodo* getinicio();
+	void insertar(jugadorGenerico*);
+	void borrar(jugadorGenerico*);
 	bool listaVacia();
 
 };
