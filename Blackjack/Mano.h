@@ -21,6 +21,7 @@ public:
 	carta* getCarta(int);
 	int getCantidad();
 	std::string mostrar();
+	friend std::ostream& operator<<(std::ostream&,Mano*);
 };
 #endif 
 

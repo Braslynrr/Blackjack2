@@ -12,10 +12,6 @@ jugadorGenerico::~jugadorGenerico()
 {
 }
 
-carta * jugadorGenerico::pedirCarta()
-{
-	return nullptr;
-}
 
 bool jugadorGenerico::sePaso()
 {

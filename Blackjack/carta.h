@@ -13,7 +13,7 @@ public:
 	~carta();
 	int getvalor();
 	int getpalo();
-	bool voltear();
+	void voltear();
 	friend std::ostream& operator<<(std::ostream&, const carta *);
 };
 #endif // !CARTA_H

@@ -100,3 +100,11 @@ std::string Mano::mostrar()
 
 	return s.str();
 }
+
+std::ostream & operator<<(std::ostream &out, Mano *M)
+{
+	for (short int i = 0; i <M->cantidad ; i++)
+	out << M->cartas[i];
+
+	return out;
+}
