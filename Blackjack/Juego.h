@@ -10,8 +10,10 @@ private:
 	lista* listaJugadores;
 	Mazo* baraja;
 public:
-	juego(Mazo*,lista*);
+	juego();
+	juego(std::string);
 	~juego();
+	
 	void jugar();
 	void guardarPartida(std::string);
 };

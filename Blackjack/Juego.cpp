@@ -1,6 +1,27 @@
 #include "Juego.h"
 
-juego::juego(Mazo *M, lista *L):baraja(M),listaJugadores(L){}
+juego::juego()
+{
+	listaJugadores = new lista;
+	baraja = new Mazo;
+
+}
+
+juego::juego(std::string Nombre)
+{
+	std::ifstream handle;
+
+	handle.open(Nombre+=".txt");
+	
+	char m, s, k; //Temporales para dejar la estructura de lectura;
+
+		handle >> s;
+		handle >> k;
+		handle >> m;
+
+
+	handle.close();
+}
 
 juego::~juego()
 {

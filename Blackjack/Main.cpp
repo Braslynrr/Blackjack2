@@ -11,9 +11,10 @@ using std::endl;
 using std::getline;
 
 int main() {
-	Mazo* mazo;
-	lista* listaj;
-	bool salir = false;
+	
+	juego juego1;
+
+	/*bool salir = false;
 	char menu=' ';
 	do {
 		system("cls");
@@ -46,7 +47,7 @@ int main() {
 		}
 
 	} while (salir == false);
-
+*/
 	
 
 

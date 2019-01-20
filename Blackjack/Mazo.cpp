@@ -28,9 +28,9 @@ Mazo::Mazo()
 
 Mazo::~Mazo()
 {
-		delete[] cartas;
 	for (short int n = 0; n < 52; n++)
-		cartas[n] = nullptr;
+		delete cartas[n];
+	delete[] cartas;
 }
 
 void Mazo::inicializar()
