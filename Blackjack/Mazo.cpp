@@ -2,7 +2,7 @@
 
 Mazo::Mazo()
 {
-	cartaact =0;
+	cartaact = 0;
 	for (short int p = 0; p < 4; p++) {
 		for (short int i = 0; i < 13; i++) {
 			switch (p)
@@ -29,8 +29,9 @@ Mazo::Mazo()
 Mazo::~Mazo()
 {
 	for (short int n = 0; n < 52; n++)
-		delete cartas[n];
-	delete[] cartas;
+	delete cartas[n];
+	for (short int n = 0; n < 52; n++)
+		cartas[n] = nullptr;
 }
 
 void Mazo::inicializar()
@@ -65,24 +66,24 @@ void Mazo::inicializar()
 
 void Mazo::intercambiar(short int Pos1, short int Pos2)
 {
-	if (Pos1==Pos2)
+	if (Pos1 == Pos2)
 	{
 		Pos1++;
 	}
-	carta* aux= cartas[Pos1];
+	carta* aux = cartas[Pos1];
 	cartas[Pos1] = cartas[Pos2];
 	cartas[Pos2] = aux;
 	aux = nullptr;
 }
 
-void Mazo::barajar(){
+void Mazo::barajar() {
 	srand(time(NULL));
 	short int bara1;
 	short int bara2;
 	for (short int i = 0; i < 9; i++)
 	{
 		bara1 = rand() % 13;
-		bara2 = rand() % 38+13;
+		bara2 = rand() % 38 + 13;
 		intercambiar(bara1, bara2);
 	}
 	for (short int i = 0; i < 9; i++)
@@ -94,14 +95,14 @@ void Mazo::barajar(){
 	}
 	for (short int i = 0; i < 9; i++)
 	{
-		bara1 = rand() % 38+13;
-		bara2 = rand() % 38+13;
+		bara1 = rand() % 38 + 13;
+		bara2 = rand() % 38 + 13;
 
 	}
 	for (short int i = 0; i < 9; i++)
 	{
-		bara1 = rand() % 39+13;
-		bara2 = rand() % 13+26;
+		bara1 = rand() % 39 + 13;
+		bara2 = rand() % 13 + 26;
 		intercambiar(bara1, bara2);
 	}
 }
@@ -109,7 +110,7 @@ void Mazo::barajar(){
 carta * Mazo::tomarCarta()
 {
 	cartaact++;
-	if (cartaact<=51)
+	if (cartaact <= 51)
 	{
 		return cartas[cartaact];
 	}
@@ -120,7 +121,7 @@ std::ostream & operator<<(std::ostream &out, Mazo * Mazo)
 {
 	for (short i = 0; i < 52; i++)
 	{
-		out << Mazo->cartas[i]<<std::endl;
+		out << Mazo->cartas[i] << std::endl;
 	}
 	return out;
 }

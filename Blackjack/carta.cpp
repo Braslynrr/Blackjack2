@@ -1,8 +1,8 @@
 ﻿#include "carta.h"
 
-carta::carta(short int V,char P):valor(V),palo(P),bocaAbajo(false){}
+carta::carta(short int V, char P) :valor(V), palo(P), bocaAbajo(false) {}
 
-carta::~carta(){}
+carta::~carta() {}
 
 int carta::getvalor()
 {
@@ -16,14 +16,15 @@ int carta::getpalo()
 
 void carta::voltear()
 {
-	if (bocaAbajo==false){
+	if (bocaAbajo == false) {
 		bocaAbajo = true;
-	}else{
+	}
+	else {
 		bocaAbajo = false;
 	}
 }
 
-std::ostream& operator<<(std::ostream&out,const carta *C)
+std::ostream& operator<<(std::ostream&out, const carta *C)
 {
 
 	if (C->bocaAbajo)
@@ -33,13 +34,14 @@ std::ostream& operator<<(std::ostream&out,const carta *C)
 		out << "|    |" << std::endl;
 		out << "|    |" << std::endl;
 		out << " ----" << std::endl;
-	}else{
+	}
+	else {
 		out << " ____" << std::endl;
 		out << "|    |" << std::endl;
 		switch (C->valor)
 		{
 		case 1:
-			out << "| A" << C->palo <<" |" << std::endl;
+			out << "| A" << C->palo << " |" << std::endl;
 			break;
 		case 10:
 			out << "|" << C->valor << C->palo << " |" << std::endl;
@@ -48,17 +50,17 @@ std::ostream& operator<<(std::ostream&out,const carta *C)
 			out << "| J" << C->palo << " |" << std::endl;
 			break;
 		case 12:
-			 out << "| Q" << C->palo << " |" << std::endl;
+			out << "| Q" << C->palo << " |" << std::endl;
 			break;
 		case 13:
-			out << "| K" << C->palo << " |" << std::endl ;
+			out << "| K" << C->palo << " |" << std::endl;
 			break;
 		default:
 			out << "| " << C->valor << C->palo << " |" << std::endl;
 			break;
 		}
 		out << "|    |" << std::endl;
-		out << " ----"<< std::endl;
+		out << " ----" << std::endl;
 	}
 	return out;
 }

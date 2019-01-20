@@ -11,10 +11,9 @@ using std::endl;
 using std::getline;
 
 int main() {
-	
-	juego juego1;
-
-	/*bool salir = false;
+	juego juego;
+	Mazo mazo;
+	bool salir = false;
 	char menu=' ';
 	do {
 		system("cls");
@@ -36,7 +35,7 @@ int main() {
 			break;
 		case 's':
 		case'S':
-			if()
+			/*if()*/
 			salir = true;
 			break;
 		default:
@@ -47,7 +46,7 @@ int main() {
 		}
 
 	} while (salir == false);
-*/
+
 	
 
 
