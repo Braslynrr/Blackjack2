@@ -14,13 +14,13 @@ int carta::getpalo()
 	return palo;
 }
 
-bool carta::voltear()
+void carta::voltear()
 {
 	if (bocaAbajo==false){
-		return false;
+		bocaAbajo = true;
+	}else{
+		bocaAbajo = false;
 	}
-	bocaAbajo = false;
-	return true;
 }
 
 std::ostream& operator<<(std::ostream&out,const carta *C)

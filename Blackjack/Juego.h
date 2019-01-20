@@ -7,10 +7,10 @@
 class juego
 {
 private:
-	lista listaJugadores;
-	Mazo baraja;
+	lista* listaJugadores;
+	Mazo* baraja;
 public:
-	juego();
+	juego(Mazo*,lista*);
 	~juego();
 	void jugar();
 	void guardarPartida(std::string);

@@ -12,7 +12,7 @@ jugador::~jugador()
 	delete mano1;
 }
 
-carta * jugador::pedirCarta(Mazo* m)
+void jugador::pedirCarta(Mazo* m)
 {
 	mano1->agregarCarta(m);
 }
