@@ -6,7 +6,7 @@
 class dealer : public jugadorGenerico
 {
 public:
-	dealer(Mano*);
+	dealer();
 	~dealer();
 	carta* pedirCarta(Mazo*);
 	void volteaSegunda();

@@ -6,7 +6,7 @@ class jugador :public jugadorGenerico
 {
 public:
 	jugador();
-	jugador(std::string, Mano*);
+	jugador(std::string);
 	~jugador();
 	carta* pedirCarta(Mazo*);
 };

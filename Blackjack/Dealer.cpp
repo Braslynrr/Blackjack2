@@ -1,13 +1,14 @@
 #include "Dealer.h"
 
-dealer::dealer(Mano * ManoDealer)
+dealer::dealer()
 {
 	nickname = "Dealer";
-	mano1 = ManoDealer;
+	Mano* mano1 = new Mano;
 }
 
 dealer::~dealer()
 {
+	delete mano1;
 }
 
 carta * dealer::pedirCarta(Mazo* m)

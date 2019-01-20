@@ -1,14 +1,15 @@
 #include "Jugador.h"
 
 
-jugador::jugador(std::string Nombre, Mano* Mano)
+jugador::jugador(std::string Nombre)
 {
 	nickname = Nombre;
-	mano1 = Mano;
+	Mano* mano1 = new Mano;
 }
 
 jugador::~jugador()
 {
+	delete mano1;
 }
 
 carta * jugador::pedirCarta(Mazo* m)
