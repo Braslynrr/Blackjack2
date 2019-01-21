@@ -2,6 +2,7 @@
 
 juego::juego()
 {
+	turno = 1;
 	listaJugadores = new lista;
 	baraja = new Mazo;
 
@@ -29,6 +30,21 @@ juego::~juego()
 	delete baraja;
 }
 
+int juego::getTurno()
+{
+	return turno;
+}
+
+Mazo * juego::getMazo()
+{
+	return baraja;
+}
+
+void juego::setTurno(int T)
+{
+	turno = T;
+}
+
 void juego::guardarPartida(std::string nombre)
 {
 
@@ -44,4 +60,9 @@ void juego::guardarPartida(std::string nombre)
 	
 		
 	handle.close();
+}
+
+lista * juego::getLista()
+{
+	return listaJugadores;
 }

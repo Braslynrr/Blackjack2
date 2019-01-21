@@ -4,8 +4,7 @@
 
 jugadorGenerico::jugadorGenerico(std::string Nickname, Mano* mano2)
 {
-	nickname = Nickname;
-	mano1 = mano2;
+	
 }
 
 jugadorGenerico::~jugadorGenerico()
