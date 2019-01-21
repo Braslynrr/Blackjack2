@@ -36,7 +36,8 @@ Mazo::~Mazo()
 
 void Mazo::inicializar()
 {
-	delete[] cartas;
+	for (short int n = 0; n < 52; n++)
+		delete cartas[n];
 	for (short int n = 0; n < 52; n++)
 		cartas[n] = nullptr;
 
@@ -77,7 +78,7 @@ void Mazo::intercambiar(short int Pos1, short int Pos2)
 }
 
 void Mazo::barajar() {
-	srand(time(NULL));
+	srand(static_cast<unsigned int>(time(nullptr)));
 	short int bara1;
 	short int bara2;
 	for (short int i = 0; i < 9; i++)

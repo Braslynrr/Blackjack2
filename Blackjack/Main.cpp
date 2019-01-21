@@ -11,8 +11,7 @@ using std::endl;
 using std::getline;
 
 int main() {
-	juego juego;
-	Mazo mazo;
+	juego juego1;
 	bool salir = false;
 	char menu=' ';
 	do {
