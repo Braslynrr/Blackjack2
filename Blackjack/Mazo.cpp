@@ -2,6 +2,7 @@
 
 Mazo::Mazo()
 {
+	cartas = new carta*[52];
 	cartaact = 0;
 	for (short int p = 0; p < 4; p++) {
 		for (short int i = 0; i < 13; i++) {
@@ -29,7 +30,9 @@ Mazo::Mazo()
 Mazo::~Mazo()
 {
 	for (short int n = 0; n < 52; n++)
-	delete cartas[n];
+		delete cartas[n];
+
+	delete[] cartas;
 	for (short int n = 0; n < 52; n++)
 		cartas[n] = nullptr;
 }

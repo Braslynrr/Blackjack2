@@ -1,15 +1,12 @@
 #ifndef MAZO_H
 #define MAZO_H
-//#include <sstream>
-//#include <string>
-#include <stdlib.h>
 #include <time.h>
 #include <Windows.h>
 #include "carta.h"
 class Mazo
 {
 private:
-	carta* cartas[52];
+	carta** cartas;
 	short int cartaact;
 public:
 	Mazo();
