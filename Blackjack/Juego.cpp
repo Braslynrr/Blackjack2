@@ -68,6 +68,7 @@ void juego::jugar()
 					jugadorGenerico* newplayer;
 					for (short int i = 0; i < jugadores; i++)
 					{
+						cout << "Introduzca su Nickname jugador" << i + 1<<endl;
 						std::cin>>nombre;
 						newplayer = new jugador(nombre);
 						listaJugadores->insertar(newplayer);
@@ -76,9 +77,7 @@ void juego::jugar()
 					newplayer = new dealer;
 					listaJugadores->insertar(newplayer);
 
-					struct Nodo* aux;
-					aux = listaJugadores->getinicio();
-					Mjugadores(jugadores);
+					Mjugadores(jugadores+1);
 
 				}
 				system("cls");
@@ -123,85 +122,58 @@ void juego::guardarPartida(std::string nombre)
 	handle.close();
 }
 
-void juego::casos(Nodo * Aux, int NumeroJ, char opcion1)
-{
-	if (opcion1 == 'T' || opcion1 == 't')
-		Aux->next->Player->pedirCarta(baraja);
-
-	if (turno == NumeroJ)
-		turno = 1;
-	else
-		turno += 1;
-}
-
-void juego::Mjugadores(int NumeroJ)
-{
-	char opcion = ' ';
-	int contadorPaso = 0;
-	do
-	{
-
-		switch (turno)
+void juego::Mjugadores(short int jugadores){
+	bool hayganador = false;
+	do{
+		char opcion = ' ';
+		struct Nodo* aux = listaJugadores->getinicio();
+		for (short int i = 0; i < turno && i<jugadores + 1; i++)
 		{
-		case 1:
+			aux = aux->next;
+		}
+		if (aux->Player->getNick() == "Dealer")
 		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
+			//codigo del dealer
+		}else{
+			bool accion = false;
+			do {
+				system("cls");
+				cout << "Player: ";
+				cout << aux->Player->getNick();
+				cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar\t(S)alir" << endl;
+				cin >> opcion;
+				switch (opcion)
+				{
+				case 'T':
+				case 't':
+					aux->Player->pedirCarta(baraja);
+					turno++;
+					accion = true;
+					break;
+				case 'P':
+				case 'p':
+					turno++;
+					accion = true;
+					break;
 
+				case 'G':
+				case 'g':
+					accion = true;
+					break;
+				case 'S':
+				case 's':
+					accion = true;
+					break;
+				default:
+					system("cls");
+					cout << "Accion invalida , digite nuevamente!" << endl;
+					Sleep(2000);
+					accion = false;
+					break;
+				}
+			} while (accion!=true);
 		}
-		case 2:
-		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
-		}
-		case 3:
-		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
-
-		}
-		case 4:
-		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
-
-		}
-		case 5:
-		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
-
-		}
-		case 6:
-		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
-
-		}
-		case 7:
-		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
-		}
-		case 8:
-		{
-			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-			cin >> opcion;
-			casos(listaJugadores->getinicio(), NumeroJ, opcion);
-		}
-
-
-
-		}
-	} while (contadorPaso < NumeroJ);
-
+	} while (hayganador!=true);
 }
 
 
