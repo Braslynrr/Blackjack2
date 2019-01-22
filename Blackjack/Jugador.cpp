@@ -1,11 +1,9 @@
 #include "Jugador.h"
 
 
-jugador::jugador(std::string Nombre)
+jugador::jugador()
 {
 	turno = false;
-	nickname = Nombre;
-	Mano* mano1 = new Mano;
 }
 
 jugador::~jugador()

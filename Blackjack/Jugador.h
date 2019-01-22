@@ -8,7 +8,6 @@ private:
 	bool turno;
 public:
 	jugador();
-	jugador(std::string);
 	~jugador();
 	
 	friend std::ostream& operator<<(std::ostream&, jugador*);
