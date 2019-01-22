@@ -11,9 +11,9 @@ private:
 public:
 	jugador(std::string);
 	~jugador();
-	friend std::ostream& operator<<(std::ostream&, jugador*);
 	Mano* pedirMano();
 	void pedirCarta(Mazo*);
+	std::string Guardarplayer();
 };
 
 #endif // !JUGADOR_H

@@ -21,6 +21,7 @@ private:
 	lista* listaJugadores;
 	Mazo* baraja;
 	short int turno;
+	bool preparativo;
 public:
 	juego();
 	juego(std::string);

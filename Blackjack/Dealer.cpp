@@ -26,12 +26,13 @@ Mano * dealer::pedirMano()
 {
 	return mano1;
 }
-std::ostream & operator<<(std::ostream &out, dealer *D)
+std::string dealer::Guardarplayer()
 {
+	std::stringstream out;
 	out << "Dealer ";
-	for (short int i = 0; i < D->mano1->getCantidad(); i++)
+	for (short int i = 0; i < mano1->getCantidad(); i++)
 	{
-		out << D->mano1->getCarta(i)->getpalo() << " " << D->mano1->getCarta(i)->getvalor() << std::endl;
+		out << mano1->getCarta(i)->getpalo() << " " << mano1->getCarta(i)->getvalor() <<" ";
 	}
-	return out;
+	return out.str();
 }

@@ -103,8 +103,37 @@ std::string Mano::mostrar()
 
 std::ostream & operator<<(std::ostream &out, Mano *M)
 {
-	for (short int i = 0; i <M->cantidad ; i++)
-	out << M->cartas[i];
+	for (short int i = 0; i < M->cantidad; i++)
+		out << "________\t";
+	out << std::endl;
+	for (short int i = 0; i < M->cantidad; i++)
+		out << "|       |\t";
+	out << std::endl;
+	for (short int i = 0; i < M->cantidad; i++)
+	{
+		if (M->cartas[i]->getBocaabajo() == true) {
+			out << "|       |\t";
+		}else{
+
+			if (M->cartas[i]->getvalor() == 10) {
+				out << "|  " << M->cartas[i] << "  |\t";
+			}
+			else {
+				out << "|  " << M->cartas[i] << "   |\t";
+			}
+
+		}
+	}
+	out << std::endl;
+	for (short int i = 0; i < M->cantidad; i++)
+		out << "|       |\t";
+	out << std::endl;
+	for (short int i = 0; i < M->cantidad; i++)
+		out << "|       |\t";
+	out << std::endl;
+	for (short int i = 0; i < M->cantidad; i++)
+		out << " ------- \t";
+	out << std::endl;
 
 	return out;
 }

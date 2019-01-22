@@ -14,6 +14,7 @@ public:
 	int getvalor();
 	int getpalo();
 	void voltear();
+	bool getBocaabajo();
 	friend std::ostream& operator<<(std::ostream&, const carta *);
 };
 #endif // !CARTA_H

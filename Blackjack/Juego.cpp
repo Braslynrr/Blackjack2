@@ -5,6 +5,7 @@ juego::juego()
 	listaJugadores = new lista;
 	baraja = new Mazo;
 	turno = 0;
+	preparativo = true;
 }
 
 juego::juego(std::string Nombre)
@@ -107,26 +108,40 @@ void juego::jugar()
 void juego::guardarPartida(std::string nombre)
 {
 
+	Nodo* aux = listaJugadores->getinicio();
 
-	std::ofstream handle; 
+	std::ofstream handle;
 
-	handle.open(nombre  += ".txt", std::ios::out); 
-	if (handle.fail())  
+	handle.open(nombre += ".txt", std::ios::out);
+	if (handle.fail())
 	{
 		std::cout << "Error al crear\n";
 		exit(1);
 	}
-	
-		
+	while (aux != nullptr) {
+		handle << aux->Player->Guardarplayer();
+		aux = aux->next;
+	}
+	handle << std::endl << turno;
 	handle.close();
 }
 
 void juego::Mjugadores(short int jugadores){
+	struct Nodo* aux = listaJugadores->getinicio();
+	if (preparativo == true) {
+		for (short int i = 0; i < jugadores; i++)
+		{
+			aux->Player->pedirCarta(baraja);
+			aux->Player->pedirCarta(baraja);
+			aux = aux->next;
+		}
+		preparativo = false;
+	}
 	bool hayganador = false;
 	bool salir=false;
 	do{
 		char opcion = ' ';
-		struct Nodo* aux = listaJugadores->getinicio();
+		 aux = listaJugadores->getinicio();
 		for (short int i = 0; i < turno && i<jugadores + 1; i++)
 		{
 			aux = aux->next;
@@ -134,20 +149,30 @@ void juego::Mjugadores(short int jugadores){
 		if (aux->Player->getNick() == "Dealer")
 		{
 			//codigo del dealer
+			system("cls");
+			
+			cout << aux->Player->getNick() << endl;
+			cout << aux->Player->pedirMano() << endl;
+			system("pause");
 			turno = 0;
 		}else{
 			bool accion = false;
 			do {
 				system("cls");
 				cout << "Player: ";
-				cout << aux->Player->getNick();
+				cout << aux->Player->getNick()<<endl;
+				cout << aux->Player->pedirMano() << endl;
 				cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar\t(S)alir" << endl;
 				cin >> opcion;
 				switch (opcion)
 				{
 				case 'T':
 				case 't':
+					system("pause");
 					aux->Player->pedirCarta(baraja);
+					cout << aux->Player->getNick() << endl;
+					cout << aux->Player->pedirMano() << endl;
+					system("pause");
 					turno++;
 					accion = true;
 					break;
@@ -159,7 +184,9 @@ void juego::Mjugadores(short int jugadores){
 
 				case 'G':
 				case 'g':
-					accion = true;
+					cout << "Desea Guardar esta partida?"<<endl;
+					guardarPartida("Partidon");
+					accion = false;
 					break;
 				case 'S':
 				case 's':
