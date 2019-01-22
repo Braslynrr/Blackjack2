@@ -79,64 +79,6 @@ void juego::jugar()
 					struct Nodo* aux;
 					aux = listaJugadores->getinicio();
 
-					int contadorPaso = 0;
-					do
-					{
-
-						switch (turno)
-						{
-						case 1:
-						{
-							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-							cin >> opcion;
-							casos(aux, turno, NumeroJ, opcion);
-
-						}
-						case 2:
-						{
-							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-							cin >> opcion;
-
-						}
-						case 3:
-						{
-							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-							cin >> opcion;
-
-
-						}
-						case 4:
-						{
-							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-							cin >> opcion;
-
-
-						}
-						case 5:
-						{
-							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-							cin >> opcion;
-
-
-						}
-						case 6:
-						{
-							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-							cin >> opcion;
-
-
-						}
-						case 7:
-						{
-							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
-							cin >> opcion;
-
-						}
-
-						}
-
-					} while (contadorPaso < NumeroJ)
-
 				}
 				system("cls");
 			break;
@@ -180,16 +122,76 @@ void juego::guardarPartida(std::string nombre)
 	handle.close();
 }
 
-
-void casos(Nodo * Aux, int NumeroJ, char opcion1)
+void juego::casos(Nodo * Aux, int NumeroJ, char opcion1)
 {
-
 	if (opcion1 == 'T' || opcion1 == 't')
 		Aux->next->Player->pedirCarta(baraja);
-	{
-		if (turno == NumeroJ)
-			turno = 1;
-		else
-			turno += 1;
-	}
+
+	if (turno == NumeroJ)
+		turno = 1;
+	else
+		turno += 1;
 }
+
+void juego::jugar(int NumeroJ,char opcion)
+{
+	int contadorPaso = 0;
+	do
+	{
+
+		switch (turno)
+		{
+		case 1:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
+
+		}
+		case 2:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+
+		}
+		case 3:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+
+
+		}
+		case 4:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+
+
+		}
+		case 5:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+
+
+		}
+		case 6:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+
+
+		}
+		case 7:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+
+		}
+
+		}
+	} while (contadorPaso < NumeroJ);
+
+}
+
+

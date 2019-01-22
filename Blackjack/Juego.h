@@ -28,6 +28,7 @@ public:
 	
 	void jugar();
 	void guardarPartida(std::string);
-	void casos();
+	void casos(Nodo*, int, char);
+	void jugar(int,char);
 };
 #endif // !JUEGO_H
