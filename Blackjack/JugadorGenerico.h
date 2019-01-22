@@ -7,12 +7,12 @@ class jugadorGenerico
 {
 protected:
 	std::string nickname;
-	Mano* mano1;
 public:
 	jugadorGenerico(std::string= " ");
 	~jugadorGenerico();
 	std::string getNombre();
 	virtual void pedirCarta(Mazo*)=0{}
+	virtual Mano* pedirMano() = 0 {}
 	bool sePaso();
 };
 

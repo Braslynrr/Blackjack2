@@ -5,12 +5,10 @@
 jugadorGenerico::jugadorGenerico(std::string Nickname)
 {
 	nickname = Nickname;
-	mano1 = new Mano;
 }
 
 jugadorGenerico::~jugadorGenerico()
 {
-	delete mano1;
 }
 
 

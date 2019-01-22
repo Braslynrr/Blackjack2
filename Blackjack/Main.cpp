@@ -70,7 +70,7 @@ void jugar(int NumeroJ, juego * Juego)
 	Juego->getLista()->insertar(jugadores);
 	for (int i = 0; i < NumeroJ; i++)
 	{
-		jugadores = new jugador;
+		jugadores = new jugador("Paco");
 		Juego->getLista()->insertar(jugadores);
 	}
 

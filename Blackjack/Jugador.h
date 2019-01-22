@@ -6,11 +6,12 @@ class jugador :public jugadorGenerico
 {
 private:
 	bool turno;
+	Mano* mano1;
 public:
-	jugador();
+	jugador(std::string);
 	~jugador();
-	
 	friend std::ostream& operator<<(std::ostream&, jugador*);
+	Mano* pedirMano();
 	void pedirCarta(Mazo*);
 };
 
