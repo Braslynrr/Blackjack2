@@ -78,7 +78,7 @@ void juego::jugar()
 
 					struct Nodo* aux;
 					aux = listaJugadores->getinicio();
-					jugar();
+					Mjugadores(jugadores);
 
 				}
 				system("cls");
@@ -154,42 +154,50 @@ void juego::Mjugadores(int NumeroJ)
 		{
 			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
 			cin >> opcion;
-
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
 		}
 		case 3:
 		{
 			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
 			cin >> opcion;
-
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
 
 		}
 		case 4:
 		{
 			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
 			cin >> opcion;
-
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
 
 		}
 		case 5:
 		{
 			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
 			cin >> opcion;
-
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
 
 		}
 		case 6:
 		{
 			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
 			cin >> opcion;
-
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
 
 		}
 		case 7:
 		{
 			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
 			cin >> opcion;
-
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
 		}
+		case 8:
+		{
+			cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+			cin >> opcion;
+			casos(listaJugadores->getinicio(), NumeroJ, opcion);
+		}
+
+
 
 		}
 	} while (contadorPaso < NumeroJ);
