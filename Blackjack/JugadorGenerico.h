@@ -15,7 +15,7 @@ protected:
 public:
 	jugadorGenerico(std::string= " " , Mano * =  NULL);
 	~jugadorGenerico();
-
+	std::string getNombre();
 	virtual void pedirCarta(Mazo*)=0{}
 	bool sePaso();
 };

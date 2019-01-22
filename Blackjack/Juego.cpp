@@ -47,7 +47,7 @@ void juego::setTurno(int T)
 
 void juego::guardarPartida(std::string nombre)
 {
-
+	Nodo* aux = listaJugadores->getinicio();
 
 	std::ofstream handle; 
 
@@ -57,8 +57,11 @@ void juego::guardarPartida(std::string nombre)
 		std::cout << "Error al crear\n";
 		exit(1);
 	}
-	
-		
+	while (aux->next != nullptr) {
+		handle << aux->Player;
+		aux = aux->next;
+	}
+	handle <<std::endl<<turno;
 	handle.close();
 }
 

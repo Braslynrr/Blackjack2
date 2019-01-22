@@ -11,7 +11,7 @@ public:
 	jugador(std::string);
 	~jugador();
 	
-
+	friend std::ostream& operator<<(std::ostream&, jugador*);
 	void pedirCarta(Mazo*);
 };
 
