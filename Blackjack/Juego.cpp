@@ -4,7 +4,7 @@ juego::juego()
 {
 	listaJugadores = new lista;
 	baraja = new Mazo;
-
+	turno = 0;
 }
 
 juego::juego(std::string Nombre)
@@ -29,6 +29,140 @@ juego::~juego()
 	delete baraja;
 }
 
+void juego::jugar()
+{
+	std::string nombre;
+	short int jugadores=0;
+	bool salir = false;
+	char menu = ' ';
+	do {
+		system("cls");
+		cout << "\t \t Blacjack" << endl << endl;
+		cout << "(N)uevo juego\t(C)argar partida\t(S)alir" << endl;
+		menu = cin.get();
+		cin.ignore();
+		switch (menu)
+		{
+		case'N':
+		case 'n':
+			do {
+				system("cls");
+				cout << "Digite el numero de jugadores que van a jugar(MAX 7)" << endl;
+				if (std::cin>>jugadores) {
+
+				}
+				else {
+					system("cls");
+					std::cout << "Caracter invalido" << endl;
+					std::cin.clear();
+					std::cin.ignore(1024, '\n');
+					Sleep(2000);
+				}
+			} while (jugadores <= 0 && jugadores<=7);
+
+				if (jugadores == 0) {
+
+				}
+				else {
+					char opcion = ' ';
+					jugadorGenerico* newplayer;
+					for (short int i = 0; i < jugadores; i++)
+					{
+						std::cin>>nombre;
+						newplayer = new jugador(nombre);
+						listaJugadores->insertar(newplayer);
+
+					}
+					newplayer = new dealer;
+					listaJugadores->insertar(newplayer);
+
+					struct Nodo* aux;
+					aux = listaJugadores->getinicio();
+
+					int contadorPaso = 0;
+					do
+					{
+
+						switch (turno)
+						{
+						case 1:
+						{
+							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+							cin >> opcion;
+							casos(aux, turno, NumeroJ, opcion);
+
+						}
+						case 2:
+						{
+							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+							cin >> opcion;
+
+						}
+						case 3:
+						{
+							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+							cin >> opcion;
+
+
+						}
+						case 4:
+						{
+							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+							cin >> opcion;
+
+
+						}
+						case 5:
+						{
+							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+							cin >> opcion;
+
+
+						}
+						case 6:
+						{
+							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+							cin >> opcion;
+
+
+						}
+						case 7:
+						{
+							cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar y salir";
+							cin >> opcion;
+
+						}
+
+						}
+
+					} while (contadorPaso < NumeroJ)
+
+				}
+				system("cls");
+			break;
+		case 'c':
+		case'C':
+
+
+			break;
+		case 's':
+		case'S':
+			/*if()*/
+			salir = true;
+			break;
+		default:
+			system("cls");
+			cout << "Digito una opcion invalida! intente de nuevo" << endl;
+			Sleep(2000);
+			break;
+		}
+
+	} while (salir == false);
+
+
+
+}
+
 void juego::guardarPartida(std::string nombre)
 {
 
@@ -44,4 +178,18 @@ void juego::guardarPartida(std::string nombre)
 	
 		
 	handle.close();
+}
+
+
+void casos(Nodo * Aux, int NumeroJ, char opcion1)
+{
+
+	if (opcion1 == 'T' || opcion1 == 't')
+		Aux->next->Player->pedirCarta(baraja);
+	{
+		if (turno == NumeroJ)
+			turno = 1;
+		else
+			turno += 1;
+	}
 }
