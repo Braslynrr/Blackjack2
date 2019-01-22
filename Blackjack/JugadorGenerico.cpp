@@ -1,11 +1,8 @@
 #include "JugadorGenerico.h"
 
-#include "JugadorGenerico.h"
-
-jugadorGenerico::jugadorGenerico(std::string Nickname, Mano* mano2)
+jugadorGenerico::jugadorGenerico(std::string Nickname)
 {
 	nickname = Nickname;
-	Mano* mano1 = mano2;
 }
 
 jugadorGenerico::~jugadorGenerico()

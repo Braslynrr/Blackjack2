@@ -39,8 +39,7 @@ void juego::jugar()
 		system("cls");
 		cout << "\t \t Blacjack" << endl << endl;
 		cout << "(N)uevo juego\t(C)argar partida\t(S)alir" << endl;
-		menu = cin.get();
-		cin.ignore();
+		cin >> menu;
 		switch (menu)
 		{
 		case'N':
@@ -124,6 +123,7 @@ void juego::guardarPartida(std::string nombre)
 
 void juego::Mjugadores(short int jugadores){
 	bool hayganador = false;
+	bool salir=false;
 	do{
 		char opcion = ' ';
 		struct Nodo* aux = listaJugadores->getinicio();
@@ -134,6 +134,7 @@ void juego::Mjugadores(short int jugadores){
 		if (aux->Player->getNick() == "Dealer")
 		{
 			//codigo del dealer
+			turno = 0;
 		}else{
 			bool accion = false;
 			do {
@@ -163,6 +164,7 @@ void juego::Mjugadores(short int jugadores){
 				case 'S':
 				case 's':
 					accion = true;
+					salir = true;
 					break;
 				default:
 					system("cls");
@@ -173,7 +175,7 @@ void juego::Mjugadores(short int jugadores){
 				}
 			} while (accion!=true);
 		}
-	} while (hayganador!=true);
+	} while (hayganador!=true && salir==false);
 }
 
 

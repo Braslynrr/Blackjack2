@@ -1,9 +1,7 @@
 #include "Dealer.h"
 
-dealer::dealer()
-{
-	nickname = "Dealer";
-	Mano* mano1 = new Mano;
+dealer::dealer(std::string nick):jugadorGenerico(nick){
+	mano1 = new Mano;
 }
 
 dealer::~dealer()
@@ -23,6 +21,10 @@ void dealer::volteaSegunda()
 	mano1->getCarta(1)->voltear();
 
 
+}
+Mano * dealer::pedirMano()
+{
+	return mano1;
 }
 std::ostream & operator<<(std::ostream &out, dealer *D)
 {
