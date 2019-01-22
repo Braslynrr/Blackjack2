@@ -8,6 +8,7 @@ class dealer : public jugadorGenerico
 public:
 	dealer();
 	~dealer();
+	friend std::ostream& operator<<(std::ostream&, dealer*);
 	void pedirCarta(Mazo*);
 	void volteaSegunda();
 };

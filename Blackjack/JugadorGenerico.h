@@ -1,9 +1,5 @@
 #ifndef JUGADORENERICO_H
 #define JUGADORENERICO_H
-//#include <sstream>
-//#include <stdlib.h>
-
-
 #include <string>
 #include "Mano.h"
 
@@ -15,6 +11,7 @@ protected:
 public:
 	jugadorGenerico(std::string= " " , Mano * =  NULL);
 	~jugadorGenerico();
+	virtual friend std::ostream& operator<<(std::ostream&, jugadorGenerico*)=0;
 	std::string getNombre();
 	virtual void pedirCarta(Mazo*)=0{}
 	bool sePaso();
