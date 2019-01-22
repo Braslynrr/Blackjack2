@@ -78,6 +78,7 @@ void juego::jugar()
 
 					struct Nodo* aux;
 					aux = listaJugadores->getinicio();
+					jugar();
 
 				}
 				system("cls");
@@ -133,8 +134,9 @@ void juego::casos(Nodo * Aux, int NumeroJ, char opcion1)
 		turno += 1;
 }
 
-void juego::jugar(int NumeroJ,char opcion)
+void juego::Mjugadores(int NumeroJ)
 {
+	char opcion = ' ';
 	int contadorPaso = 0;
 	do
 	{
