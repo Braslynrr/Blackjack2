@@ -2,6 +2,7 @@
 
 
 jugador::jugador(std::string Nick):jugadorGenerico(Nick){
+	turno = false;
     mano1 = new Mano;
 }
 
@@ -18,6 +19,16 @@ Mano * jugador::pedirMano()
 void jugador::pedirCarta(Mazo* m)
 {
 	mano1->agregarCarta(m);
+}
+
+bool jugador::getTurno()
+{
+	return turno;
+}
+
+void jugador::setTurno(bool t)
+{
+	turno = t;
 }
 
 std::string jugador::Guardarplayer()

@@ -128,6 +128,10 @@ void juego::guardarPartida(std::string nombre)
 
 void juego::Mjugadores(short int jugadores){
 	struct Nodo* aux = listaJugadores->getinicio();
+
+	jugador* jug;
+	 //cast para acceder
+
 	if (preparativo == true) {
 		for (short int i = 0; i < jugadores; i++)
 		{
@@ -151,11 +155,15 @@ void juego::Mjugadores(short int jugadores){
 			//codigo del dealer
 			system("cls");
 			
+
 			cout << aux->Player->getNick() << endl;
 			cout << aux->Player->pedirMano() << endl;
 			system("pause");
 			turno = 0;
 		}else{
+
+			jug = static_cast<jugador*>(aux->Player); //cast para acceder al bool turno y sus metodos
+
 			bool accion = false;
 			do {
 				system("cls");
@@ -164,42 +172,49 @@ void juego::Mjugadores(short int jugadores){
 				cout << aux->Player->pedirMano() << endl;
 				cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar\t(S)alir" << endl;
 				cin >> opcion;
-				switch (opcion)
-				{
-				case 'T':
-				case 't':
-					system("pause");
-					aux->Player->pedirCarta(baraja);
-					cout << aux->Player->getNick() << endl;
-					cout << aux->Player->pedirMano() << endl;
-					system("pause");
-					turno++;
-					accion = true;
-					break;
-				case 'P':
-				case 'p':
-					turno++;
-					accion = true;
-					break;
 
-				case 'G':
-				case 'g':
-					cout << "Desea Guardar esta partida?"<<endl;
-					guardarPartida("Partidon");
-					accion = false;
-					break;
-				case 'S':
-				case 's':
-					accion = true;
-					salir = true;
-					break;
-				default:
-					system("cls");
-					cout << "Accion invalida , digite nuevamente!" << endl;
-					Sleep(2000);
-					accion = false;
-					break;
-				}
+				
+					switch (opcion)
+					{
+					case 'T':
+					case 't':
+						system("pause");
+						aux->Player->pedirCarta(baraja);
+						cout << aux->Player->getNick() << endl;
+						cout << aux->Player->pedirMano() << endl;
+						system("pause");
+						turno++;
+						accion = true;
+						break;
+					case 'P':
+					case 'p':
+					{
+						jug->setTurno(true);
+						turno++;
+						accion = true;
+						break;
+					}
+
+					case 'G':
+					case 'g':
+						cout << "Desea Guardar esta partida?" << endl;
+						guardarPartida("Partidon");
+						accion = false;
+						break;
+					case 'S':
+					case 's':
+						accion = true;
+						salir = true;
+						break;
+					default:
+						system("cls");
+						cout << "Accion invalida , digite nuevamente!" << endl;
+						Sleep(2000);
+						accion = false;
+						break;
+					}
+				
+			
 			} while (accion!=true);
 		}
 	} while (hayganador!=true && salir==false);
