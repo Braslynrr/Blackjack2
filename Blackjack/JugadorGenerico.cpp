@@ -1,7 +1,5 @@
 #include "JugadorGenerico.h"
 
-#include "JugadorGenerico.h"
-
 jugadorGenerico::jugadorGenerico(std::string Nickname)
 {
 	nickname = Nickname;
@@ -11,11 +9,11 @@ jugadorGenerico::~jugadorGenerico()
 {
 }
 
-
-std::string jugadorGenerico::getNombre()
+std::string jugadorGenerico::getNick()
 {
 	return nickname;
 }
+
 
 bool jugadorGenerico::sePaso()
 {

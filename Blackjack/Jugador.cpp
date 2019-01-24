@@ -1,8 +1,9 @@
 #include "Jugador.h"
 
 
-jugador::jugador(std::string Nick) :jugadorGenerico(Nick) {
-	mano1 = new Mano;
+jugador::jugador(std::string Nick):jugadorGenerico(Nick){
+	turno = false;
+    mano1 = new Mano;
 }
 
 jugador::~jugador()
@@ -20,12 +21,24 @@ void jugador::pedirCarta(Mazo* m)
 	mano1->agregarCarta(m);
 }
 
-std::ostream & operator<<(std::ostream &out, jugador *J)
+bool jugador::getTurno()
 {
-	out << J->getNombre() << " ";
-	for (short int i = 0; i < J->mano1->getCantidad(); i++)
+	return turno;
+}
+
+void jugador::setTurno(bool t)
+{
+	turno = t;
+}
+
+std::string jugador::Guardarplayer()
+{
+	std::stringstream out;
+	out << getNick() << " "<< mano1->getCantidad()<<" ";
+	for (short int i = 0; i < mano1->getCantidad(); i++)
 	{
-		out << J->mano1->getCarta(i)->getpalo() << " " << J->mano1->getCarta(i)->getvalor() << std::endl;
+		out << mano1->getCarta(i)->getpalo() << " " << mano1->getCarta(i)->getvalor() << " ";
 	}
-	return out;
+	out << std::endl;
+	return out.str();
 }

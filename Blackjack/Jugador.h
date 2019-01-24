@@ -1,5 +1,6 @@
+
 #ifndef JUGADOR_H
-#define JUGADOR_
+#define JUGADOR_H
 #include "JugadorGenerico.h"
 
 class jugador :public jugadorGenerico
@@ -10,12 +11,11 @@ private:
 public:
 	jugador(std::string);
 	~jugador();
-	friend std::ostream& operator<<(std::ostream&, jugador*);
 	Mano* pedirMano();
 	void pedirCarta(Mazo*);
+	bool getTurno();
+	void setTurno(bool);
+	std::string Guardarplayer();
 };
 
 #endif // !JUGADOR_H
-
-
-
