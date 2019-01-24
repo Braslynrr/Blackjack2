@@ -13,6 +13,8 @@ public:
 	~jugador();
 	Mano* pedirMano();
 	void pedirCarta(Mazo*);
+	bool getTurno();
+	void setTurno(bool);
 	std::string Guardarplayer();
 };
 
