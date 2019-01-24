@@ -6,6 +6,7 @@ lista::lista()
 }
 lista::~lista()
 {
+	borrar();
 }
 Nodo * lista::getinicio()
 {
@@ -31,11 +32,23 @@ void lista::insertar(jugadorGenerico* Jug)
 	}
 }
 
-void lista::borrar(jugadorGenerico* jug)
+void lista::borrar()
 {
 
-
-
+	if (listaVacia()) {
+		std::cout << "Lista borrada \n" << std::endl;
+	}
+	else {
+		struct Nodo*aux;
+		while (inicio!=false)
+		{
+			aux = inicio;
+			inicio = inicio->next;
+			delete aux;
+		}
+		std::cout << "Lista borrada \n" << std::endl;
+	}
+	
 }
 bool lista::listaVacia()
 {

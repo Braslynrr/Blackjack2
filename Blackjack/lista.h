@@ -11,7 +11,7 @@ public:
 	~lista();
 	Nodo* getinicio();
 	void insertar(jugadorGenerico*);
-	void borrar(jugadorGenerico*);
+	void borrar();
 	bool listaVacia();
 
 };
