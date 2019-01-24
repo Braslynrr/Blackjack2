@@ -172,12 +172,12 @@ void juego::Mjugadores(short int jugadores){
 			if (jug->getTurno() != true) {
 
 				bool accion = false;
-				do {
+				while (accion != true) {
 					system("cls");
 					cout << "Player: ";
 					cout << aux->Player->getNick() << endl;
 					cout << aux->Player->pedirMano() << endl;
-					cout << aux->Player->pedirMano()->getPuntos()<<endl;
+					cout << aux->Player->pedirMano()->getPuntos() << endl;
 					cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar\t(S)alir" << endl;
 					cin >> opcion;
 
@@ -192,9 +192,10 @@ void juego::Mjugadores(short int jugadores){
 						cout << aux->Player->pedirMano() << endl;
 						cout << aux->Player->pedirMano()->getPuntos() << endl;
 						if (aux->Player->pedirMano()->getPuntos() >= 21) {
-						marcapasos++;
-						jug->setTurno(true);
-					}
+							marcapasos++;
+							jug->setTurno(true);
+
+						}
 						system("pause");
 						turno++;
 						accion = true;
@@ -215,7 +216,7 @@ void juego::Mjugadores(short int jugadores){
 						std::string nombreP;
 						cout << "Desea Guardar esta partida?Digite nombre de la partida para guardarla \n Digite 0 para cancelar" << endl;
 						cin >> nombreP;
-						if (nombreP!="0") {
+						if (nombreP != "0") {
 							guardarPartida(nombreP);
 							accion = false;
 						}
@@ -242,10 +243,13 @@ void juego::Mjugadores(short int jugadores){
 					}
 
 
-				} while (accion != true);
+				}
 			}
+			else
+				turno++;
+
 		}
-		if (marcapasos == jugadores)
+		 if (marcapasos == jugadores)
 			jugadores++;
 		if(turno==jugadores)
 			turno = 0;
