@@ -4,6 +4,7 @@ juego::juego()
 {
 	listaJugadores = new lista;
 	baraja = new Mazo;
+	baraja->barajar();
 	turno = 0;
 	preparativo = true;
 }
@@ -77,15 +78,19 @@ void juego::jugar()
 					newplayer = new dealer;
 					listaJugadores->insertar(newplayer);
 
-					Mjugadores(jugadores+1);
+					Mjugadores(jugadores);
 
 				}
 				system("cls");
 			break;
 		case 'c':
 		case'C':
-
-
+		{
+			std::string Partida;
+			cout << "Digite el nombre del archivo que desea Cargar Partida\n El nombre debe ser exactamente igual" << endl;
+			cin >> Partida;
+			Mjugadores(jugadores);
+		}
 			break;
 		case 's':
 		case'S':
@@ -128,12 +133,13 @@ void juego::guardarPartida(std::string nombre)
 
 void juego::Mjugadores(short int jugadores){
 	struct Nodo* aux = listaJugadores->getinicio();
-
+	short int marcapasos=0;
 	jugador* jug;
+	dealer *Dealer;
 	 //cast para acceder
 
 	if (preparativo == true) {
-		for (short int i = 0; i < jugadores; i++)
+		for (short int i = 0; i < jugadores+1; i++)
 		{
 			aux->Player->pedirCarta(baraja);
 			aux->Player->pedirCarta(baraja);
@@ -146,7 +152,7 @@ void juego::Mjugadores(short int jugadores){
 	do{
 		char opcion = ' ';
 		 aux = listaJugadores->getinicio();
-		for (short int i = 0; i < turno && i<jugadores + 1; i++)
+		for (short int i = 0; i < turno && i<jugadores; i++)
 		{
 			aux = aux->next;
 		}
@@ -159,29 +165,36 @@ void juego::Mjugadores(short int jugadores){
 			cout << aux->Player->getNick() << endl;
 			cout << aux->Player->pedirMano() << endl;
 			system("pause");
-			turno = 0;
 		}else{
 
 			jug = static_cast<jugador*>(aux->Player); //cast para acceder al bool turno y sus metodos
 
-			bool accion = false;
-			do {
-				system("cls");
-				cout << "Player: ";
-				cout << aux->Player->getNick()<<endl;
-				cout << aux->Player->pedirMano() << endl;
-				cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar\t(S)alir" << endl;
-				cin >> opcion;
+			if (jug->getTurno() != true) {
 
-				
+				bool accion = false;
+				do {
+					system("cls");
+					cout << "Player: ";
+					cout << aux->Player->getNick() << endl;
+					cout << aux->Player->pedirMano() << endl;
+					cout << aux->Player->pedirMano()->getPuntos()<<endl;
+					cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar\t(S)alir" << endl;
+					cin >> opcion;
+
+
 					switch (opcion)
 					{
 					case 'T':
 					case 't':
-						system("pause");
+						system("cls");
 						aux->Player->pedirCarta(baraja);
 						cout << aux->Player->getNick() << endl;
 						cout << aux->Player->pedirMano() << endl;
+						cout << aux->Player->pedirMano()->getPuntos() << endl;
+						if (aux->Player->pedirMano()->getPuntos() >= 21) {
+						marcapasos++;
+						jug->setTurno(true);
+					}
 						system("pause");
 						turno++;
 						accion = true;
@@ -191,21 +204,35 @@ void juego::Mjugadores(short int jugadores){
 					{
 						jug->setTurno(true);
 						turno++;
+						marcapasos++;
 						accion = true;
 						break;
 					}
 
 					case 'G':
 					case 'g':
-						cout << "Desea Guardar esta partida?" << endl;
-						guardarPartida("Partidon");
-						accion = false;
+					{
+						std::string nombreP;
+						cout << "Desea Guardar esta partida?Digite nombre de la partida para guardarla \n Digite 0 para cancelar" << endl;
+						cin >> nombreP;
+						if (nombreP!="0") {
+							guardarPartida(nombreP);
+							accion = false;
+						}
 						break;
+					}
 					case 'S':
 					case 's':
-						accion = true;
-						salir = true;
+					{
+						std::string SalirP;
+						cout << "Desea salir? si no ha guardado partida perdera sus progresos!!\n digite 'Si' para continuar \n cualquiere otro caracter cancelara la accion \n";
+						cin >> SalirP;
+						if (SalirP == "si" || SalirP == "Si" || SalirP == "sI" || SalirP == "SI") {
+							accion = true;
+							salir = true;
+						}
 						break;
+					}
 					default:
 						system("cls");
 						cout << "Accion invalida , digite nuevamente!" << endl;
@@ -213,10 +240,15 @@ void juego::Mjugadores(short int jugadores){
 						accion = false;
 						break;
 					}
-				
-			
-			} while (accion!=true);
+
+
+				} while (accion != true);
+			}
 		}
+		if (marcapasos == jugadores)
+			jugadores++;
+		if(turno==jugadores)
+			turno = 0;
 	} while (hayganador!=true && salir==false);
 }
 

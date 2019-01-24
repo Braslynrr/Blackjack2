@@ -12,7 +12,7 @@ Mano::Mano()
 Mano::~Mano()
 {
 	for (int i = 0; i < 13; i++)
-		delete cartas[i];//no deberia eliminar las cartas del mazo
+		cartas[i]=nullptr;//no deberia eliminar las cartas del mazo
 	delete[] cartas;
 }
 
