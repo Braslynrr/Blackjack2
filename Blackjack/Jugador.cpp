@@ -34,7 +34,7 @@ void jugador::setTurno(bool t)
 std::string jugador::Guardarplayer()
 {
 	std::stringstream out;
-	out << getNick() << " ";
+	out << getNick() << " "<< mano1->getCantidad()<<" ";
 	for (short int i = 0; i < mano1->getCantidad(); i++)
 	{
 		out << mano1->getCarta(i)->getpalo() << " " << mano1->getCarta(i)->getvalor() << " ";

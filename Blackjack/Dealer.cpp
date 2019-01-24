@@ -30,6 +30,7 @@ std::string dealer::Guardarplayer()
 {
 	std::stringstream out;
 	out << "Dealer ";
+	out << mano1->getCantidad() << " ";
 	for (short int i = 0; i < mano1->getCantidad(); i++)
 	{
 		out << mano1->getCarta(i)->getpalo() << " " << mano1->getCarta(i)->getvalor() <<" ";
