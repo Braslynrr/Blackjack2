@@ -64,8 +64,6 @@ bool juego::cargarPartida(std::string Nombre)
 			newplayer->pedirCarta(baraja);
 			consecutivo++;
 		}
-		cout << newplayer->Guardarplayer();
-		system("pause");
 		listaJugadores->insertar(newplayer);
 		newplayer = nullptr;
 		jt--;
@@ -129,6 +127,7 @@ void juego::jugar()
 		{
 			std::string Partida;
 			cout << "Digite el nombre del archivo que desea Cargar Partida\n El nombre debe ser exactamente igual" << endl;
+			preparativo = false;
 			cin >> Partida;
 			cargarPartida(Partida);
 			jugadores = listaJugadores->Cantidad();
