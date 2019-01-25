@@ -39,6 +39,11 @@ std::string jugador::Guardarplayer()
 	{
 		out << mano1->getCarta(i)->getpalo() << " " << mano1->getCarta(i)->getvalor() << " ";
 	}
-	out << std::endl;
+	if(turno == false){
+		out << "0"<<std::endl;
+	}
+	else {
+		out << "1"<<std::endl;
+	}
 	return out.str();
 }

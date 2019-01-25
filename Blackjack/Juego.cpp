@@ -42,8 +42,9 @@ bool juego::cargarPartida(std::string Nombre)
 	}
 	//ahora si la inclusion de archivos
 	jugadorGenerico* newplayer;
+	jugador* jug;
 	short int interC,jt,valor,turno,iteraciones,consecutivo=0;//jt -> jugadores totales
-	std::string nick;
+	std::string nick,turnoV;
 	char palo;
 	handle >> jt;
 	while (jt != 0) {
@@ -63,6 +64,15 @@ bool juego::cargarPartida(std::string Nombre)
 			baraja->intercambiar(consecutivo, interC);
 			newplayer->pedirCarta(baraja);
 			consecutivo++;
+		}
+		if (nick != "Dealer") {
+			handle >> turnoV;
+			jug = static_cast<jugador*>(newplayer);
+			if (turnoV=="0"){
+				jug->setTurno(false);
+			}else{
+				jug->setTurno(true);
+			}
 		}
 		listaJugadores->insertar(newplayer);
 		newplayer = nullptr;
@@ -118,7 +128,7 @@ void juego::jugar()
 					listaJugadores->insertar(newplayer);
 
 					Mjugadores(jugadores);
-
+					listaJugadores->borrar();
 				}
 				system("cls");
 			break;
@@ -132,6 +142,7 @@ void juego::jugar()
 			cargarPartida(Partida);
 			jugadores = listaJugadores->Cantidad();
 			Mjugadores(jugadores-1);
+			listaJugadores->borrar();
 		}
 			break;
 		case 's':
