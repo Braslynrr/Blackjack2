@@ -22,6 +22,7 @@ private:
 	Mazo* baraja;
 	short int turno;
 	bool preparativo;
+	short int marcapasos;
 public:
 	juego();
 	juego(std::string);

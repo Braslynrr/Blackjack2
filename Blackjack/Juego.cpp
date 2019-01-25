@@ -6,6 +6,7 @@ juego::juego()
 	baraja = new Mazo;
 	baraja->barajar();
 	turno = 0;
+	marcapasos = 0;
 	preparativo = true;
 }
 
@@ -43,7 +44,7 @@ bool juego::cargarPartida(std::string Nombre)
 	//ahora si la inclusion de archivos
 	jugadorGenerico* newplayer;
 	jugador* jug;
-	short int interC,jt,valor,turno,iteraciones,consecutivo=0;//jt -> jugadores totales
+	short int interC,jt,valor,iteraciones,consecutivo=0;//jt -> jugadores totales
 	std::string nick,turnoV;
 	char palo;
 	handle >> jt;
@@ -78,6 +79,9 @@ bool juego::cargarPartida(std::string Nombre)
 		newplayer = nullptr;
 		jt--;
 	}
+	handle >> turno;
+	handle >> marcapasos;
+	handle.close();
 	return true;
 }
 
@@ -124,6 +128,7 @@ void juego::jugar()
 						listaJugadores->insertar(newplayer);
 
 					}
+					preparativo = true;
 					newplayer = new dealer;
 					listaJugadores->insertar(newplayer);
 
@@ -183,13 +188,12 @@ void juego::guardarPartida(std::string nombre)
 		handle << aux->Player->Guardarplayer();
 		aux = aux->next;
 	}
-	handle << std::endl << turno;
+	handle << std::endl << turno<<" "<<marcapasos;
 	handle.close();
 }
 
 void juego::Mjugadores(short int jugadores){
 	struct Nodo* aux = listaJugadores->getinicio();
-	short int marcapasos=0;
 	jugador* jug;
 	dealer *Dealer;
 	for (short int i = 0; i < jugadores; i++)
