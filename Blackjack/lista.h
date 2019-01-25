@@ -10,6 +10,7 @@ public:
 	lista();
 	~lista();
 	Nodo* getinicio();
+	short int Cantidad();
 	void insertar(jugadorGenerico*);
 	void borrar();
 	bool listaVacia();

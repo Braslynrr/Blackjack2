@@ -4,12 +4,26 @@ carta::carta(short int V, char P) :valor(V), palo(P), bocaAbajo(false) {}
 
 carta::~carta() {}
 
-int carta::getvalor()
+short int carta::getvalor()
 {
 	return valor;
 }
 
-int carta::getpalo()
+short int carta::getvalorClasico()
+{
+
+	if (valor == 1) {
+		return 11;
+	}
+	else {
+		if (valor > 10) {
+			return 10;
+		}
+		return valor;
+	}
+}
+
+char carta::getpalo()
 {
 	return palo;
 }

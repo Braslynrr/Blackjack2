@@ -31,10 +31,7 @@ Mazo::~Mazo()
 {
 	for (short int n = 0; n < 52; n++)
 		delete cartas[n];
-
 	delete[] cartas;
-	for (short int n = 0; n < 52; n++)
-		cartas[n] = nullptr;
 }
 
 void Mazo::inicializar()
@@ -78,6 +75,15 @@ void Mazo::intercambiar(short int Pos1, short int Pos2)
 	cartas[Pos1] = cartas[Pos2];
 	cartas[Pos2] = aux;
 	aux = nullptr;
+}
+
+short int Mazo::BuscarCarta(char Pa, short int Num)
+{
+
+	for(short int i =0;i<52;i++)
+		if(cartas[i]->getpalo()==Pa&&cartas[i]->getvalor()==Num)
+			return i;
+	return -1;
 }
 
 void Mazo::barajar() {

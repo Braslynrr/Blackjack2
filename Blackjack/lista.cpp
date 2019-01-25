@@ -12,6 +12,22 @@ Nodo * lista::getinicio()
 {
 	return inicio;
 }
+short int lista::Cantidad()
+{
+	struct Nodo* aux;
+	aux = inicio;
+	short int cantidad=0;
+	if (inicio == nullptr) {
+		return 0;
+	}
+	else {
+		while (aux != nullptr) {
+			cantidad++;
+			aux = aux->next;
+		}
+	}
+	return cantidad;
+}
 void lista::insertar(jugadorGenerico* Jug)
 {
 	struct Nodo * nuevo;

@@ -11,8 +11,9 @@ private:
 public:
 	carta(short int,char);
 	~carta();
-	int getvalor();
-	int getpalo();
+	short int getvalor();
+	short int getvalorClasico();
+	char getpalo();
 	void voltear();
 	bool getBocaabajo();
 	friend std::ostream& operator<<(std::ostream&, const carta *);

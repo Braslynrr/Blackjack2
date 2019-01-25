@@ -26,7 +26,7 @@ public:
 	juego();
 	juego(std::string);
 	~juego();
-	
+	bool cargarPartida(std::string);
 	void jugar();
 	void guardarPartida(std::string);
 	void Mjugadores(short int);

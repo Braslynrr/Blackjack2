@@ -1,5 +1,4 @@
-Brazza 68 1 68 2 
-Dealer 68 3
-68 4
-
+3 Brazza 2 E 10 D 1 
+Enroque 2 T 6 C 8 
+Dealer 2 C 11 D 5 
 0

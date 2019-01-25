@@ -31,6 +31,48 @@ juego::~juego()
 	delete baraja;
 }
 
+bool juego::cargarPartida(std::string Nombre)
+{
+	std::ifstream handle;
+	handle.open(Nombre += ".txt", std::ios::in);
+	if (handle.fail())
+	{
+		std::cout << "Error al crear\n";
+		return false;
+	}
+	//ahora si la inclusion de archivos
+	jugadorGenerico* newplayer;
+	short int interC,jt,valor,turno,iteraciones,consecutivo=0;//jt -> jugadores totales
+	std::string nick;
+	char palo;
+	handle >> jt;
+	while (jt != 0) {
+		handle >> nick;
+		handle >> iteraciones;
+
+		if (nick != "Dealer") {
+			newplayer = new jugador(nick);
+		}
+		else {
+			newplayer = new dealer;
+		}
+		for (short int i = 0; i < iteraciones; i++) {
+			handle >> palo;
+			handle >> valor;
+			interC = baraja->BuscarCarta(palo, valor);
+			baraja->intercambiar(consecutivo, interC);
+			newplayer->pedirCarta(baraja);
+			consecutivo++;
+		}
+		cout << newplayer->Guardarplayer();
+		system("pause");
+		listaJugadores->insertar(newplayer);
+		newplayer = nullptr;
+		jt--;
+	}
+	return true;
+}
+
 void juego::jugar()
 {
 	std::string nombre;
@@ -59,12 +101,11 @@ void juego::jugar()
 					std::cin.ignore(1024, '\n');
 					Sleep(2000);
 				}
-			} while (jugadores <= 0 && jugadores<=7);
+			} while (jugadores < 0 && jugadores<8);
 
 				if (jugadores == 0) {
 
-				}
-				else {
+				}else {
 					char opcion = ' ';
 					jugadorGenerico* newplayer;
 					for (short int i = 0; i < jugadores; i++)
@@ -89,7 +130,9 @@ void juego::jugar()
 			std::string Partida;
 			cout << "Digite el nombre del archivo que desea Cargar Partida\n El nombre debe ser exactamente igual" << endl;
 			cin >> Partida;
-			Mjugadores(jugadores);
+			cargarPartida(Partida);
+			jugadores = listaJugadores->Cantidad();
+			Mjugadores(jugadores-1);
 		}
 			break;
 		case 's':
@@ -123,6 +166,9 @@ void juego::guardarPartida(std::string nombre)
 		std::cout << "Error al crear\n";
 		exit(1);
 	}
+	short int cant = listaJugadores->Cantidad();
+
+	handle <<cant<<" ";
 	while (aux != nullptr) {
 		handle << aux->Player->Guardarplayer();
 		aux = aux->next;
@@ -136,8 +182,13 @@ void juego::Mjugadores(short int jugadores){
 	short int marcapasos=0;
 	jugador* jug;
 	dealer *Dealer;
+	for (short int i = 0; i < jugadores; i++)
+	{
+		aux = aux->next;
+	}
+	Dealer = static_cast<dealer*>(aux->Player);
 	 //cast para acceder
-
+	aux = listaJugadores->getinicio();
 	if (preparativo == true) {
 		for (short int i = 0; i < jugadores+1; i++)
 		{
@@ -160,10 +211,9 @@ void juego::Mjugadores(short int jugadores){
 		{
 			//codigo del dealer
 			system("cls");
-			
-
 			cout << aux->Player->getNick() << endl;
 			cout << aux->Player->pedirMano() << endl;
+			cout<<"puntos: "<< Dealer->pedirMano()->getCarta(0)->getvalorClasico()<<endl;
 			system("pause");
 		}else{
 
@@ -175,9 +225,9 @@ void juego::Mjugadores(short int jugadores){
 				while (accion != true) {
 					system("cls");
 					cout << "Player: ";
-					cout << aux->Player->getNick() << endl;
+					cout << aux->Player->getNick()<<"\t\t\t\t\t"<<Dealer->getNick()<<" Puntos: "<<Dealer->pedirMano()->getCarta(0)->getvalorClasico()<<" *Segunda carta boca abajo*"<< endl;
 					cout << aux->Player->pedirMano() << endl;
-					cout << aux->Player->pedirMano()->getPuntos() << endl;
+					cout <<"Puntos actuales: "<< aux->Player->pedirMano()->getPuntos() << endl;
 					cout << "(T)omar Carta\t(P)ostrarse\t(G)uardar\t(S)alir" << endl;
 					cin >> opcion;
 
@@ -225,6 +275,7 @@ void juego::Mjugadores(short int jugadores){
 					case 'S':
 					case 's':
 					{
+						system("cls");
 						std::string SalirP;
 						cout << "Desea salir? si no ha guardado partida perdera sus progresos!!\n digite 'Si' para continuar \n cualquiere otro caracter cancelara la accion \n";
 						cin >> SalirP;
