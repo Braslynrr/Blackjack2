@@ -2,6 +2,8 @@
 #define DEALER_H
 
 #include "jugadorGenerico.h"
+#include "lista.h"
+
 
 class dealer : public jugadorGenerico
 {

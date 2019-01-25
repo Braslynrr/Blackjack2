@@ -37,3 +37,5 @@ std::string dealer::Guardarplayer()
 	}
 	return out.str();
 }
+
+

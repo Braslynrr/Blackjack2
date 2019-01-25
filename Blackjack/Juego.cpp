@@ -12,18 +12,18 @@ juego::juego()
 
 juego::juego(std::string Nombre)
 {
-	std::ifstream handle;
+	//std::ifstream handle;
 
-	handle.open(Nombre+=".txt");
-	
-	char m, s, k; //Temporales para dejar la estructura de lectura;
+	//handle.open(Nombre+=".txt");
+	//
+	//char m, s, k; //Temporales para dejar la estructura de lectura;
 
-		handle >> s;
-		handle >> k;
-		handle >> m;
+	//	handle >> s;
+	//	handle >> k;
+	//	handle >> m;
 
 
-	handle.close();
+	//handle.close();
 }
 
 juego::~juego()
@@ -146,6 +146,7 @@ void juego::jugar()
 			cin >> Partida;
 			cargarPartida(Partida);
 			jugadores = listaJugadores->Cantidad();
+
 			Mjugadores(jugadores-1);
 			listaJugadores->borrar();
 		}
@@ -194,6 +195,7 @@ void juego::guardarPartida(std::string nombre)
 
 void juego::Mjugadores(short int jugadores){
 	struct Nodo* aux = listaJugadores->getinicio();
+	struct Nodo* ganar = listaJugadores->getinicio();
 	jugador* jug;
 	dealer *Dealer;
 	for (short int i = 0; i < jugadores; i++)
@@ -214,6 +216,7 @@ void juego::Mjugadores(short int jugadores){
 	}
 	bool hayganador = false;
 	bool salir=false;
+	
 	do{
 		char opcion = ' ';
 		 aux = listaJugadores->getinicio();
@@ -225,10 +228,38 @@ void juego::Mjugadores(short int jugadores){
 		{
 			//codigo del dealer
 			system("cls");
+			
 			cout << aux->Player->getNick() << endl;
 			cout << aux->Player->pedirMano() << endl;
-			cout<<"puntos: "<< Dealer->pedirMano()->getCarta(0)->getvalorClasico()<<endl;
+			
+			/*cout<<"puntos: "<< Dealer->pedirMano()->getCarta(0)->getvalorClasico()<<endl;*/
+
+			// AQUI EMPIEZA LO QUE AGREGUE
+			cout << "Puntos" << Dealer->pedirMano()->getPuntos()<<"\n\n\n";
+				
+			while (Dealer->pedirMano()->getPuntos() <= 16)
+				{
+				aux->Player->pedirCarta(baraja);
+				}
+
+			while (ganar->next != nullptr)
+			{
+				if (ganar->Player->pedirMano()->getPuntos() > Dealer->pedirMano()->getPuntos() && ganar->Player->pedirMano()->getPuntos() < 21 || ganar->Player->pedirMano()->getPuntos() == 21)
+					cout << ganar->Player->getNick() << " Le gano a la casa\n";
+				else if (Dealer->pedirMano()->getPuntos() < 21 || Dealer->pedirMano()->getPuntos() == 21 && Dealer->pedirMano()->getPuntos() > ganar->Player->pedirMano()->getPuntos())
+					cout << "La casa le gano a: " << ganar->Player->getNick() << "\n";
+				else if (Dealer->pedirMano()->getPuntos() > 21 && ganar->Player->pedirMano()->getPuntos() > 21)
+					cout << "No gana el Dealer y tampoco: " << ganar->Player->getNick();
+				else if (Dealer->pedirMano()->getPuntos() == ganar->Player->pedirMano()->getPuntos())
+					cout << "Dealer y " << ganar->Player->getNick() << " empataron";
+				else if (Dealer->pedirMano()->getPuntos() > 21 && ganar->Player->pedirMano()->getPuntos() < 21)
+					cout << ganar->Player->getNick() << " le gana a la casa";
+				ganar = ganar->next;
+			}
 			system("pause");
+
+			//AQUI TERMINA :U
+			
 		}else{
 
 			jug = static_cast<jugador*>(aux->Player); //cast para acceder al bool turno y sus metodos
@@ -314,11 +345,18 @@ void juego::Mjugadores(short int jugadores){
 				turno++;
 
 		}
+		/*Dealer->volteaSegunda();
+		cout<<Dealer->pedirMano()->getPuntos();*/
+
+		Dealer->volteaSegunda();
+		cout << "puntos: "<<Dealer->pedirMano()->getPuntos();
 		 if (marcapasos == jugadores)
 			jugadores++;
 		if(turno==jugadores)
 			turno = 0;
+		
 	} while (hayganador!=true && salir==false);
+
 }
 
 
