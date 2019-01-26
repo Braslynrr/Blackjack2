@@ -4,7 +4,6 @@ juego::juego()
 {
 	listaJugadores = new lista;
 	baraja = new Mazo;
-	baraja->barajar();
 	turno = 0;
 	marcapasos = 0;
 	preparativo = true;
@@ -86,12 +85,13 @@ void juego::jugar()
 		case'N':
 		case 'n':
 			do {
+				baraja->barajar();
+				baraja->reiniciaCA();
 				system("cls");
 				cout << "Digite el numero de jugadores que van a jugar(MAX 7)" << endl;
 				if (std::cin>>jugadores) {
 
-				}
-				else {
+				}else {
 					system("cls");
 					std::cout << "Caracter invalido" << endl;
 					std::cin.clear();
@@ -125,7 +125,9 @@ void juego::jugar()
 		case 'c':
 		case'C':
 		{
+			baraja->reiniciaCA();
 			std::string Partida;
+			system("cls");
 			cout << "Digite el nombre del archivo que desea Cargar Partida\n El nombre debe ser exactamente igual" << endl;
 			preparativo = false;
 			cin >> Partida;
@@ -133,7 +135,6 @@ void juego::jugar()
 				jugadores = listaJugadores->Cantidad();
 				Mjugadores(jugadores - 1);
 				listaJugadores->borrar();
-				
 			}
 		}
 			break;
@@ -223,15 +224,14 @@ void juego::Mjugadores(short int jugadores){
 			Dealer->volteaSegunda();
 			cout << Dealer->pedirMano()<<endl;
 			cout << "Puntos: " << Dealer->pedirMano()->getPuntos()<<"\n\n\n";
-				
 			while (Dealer->pedirMano()->getPuntos() <= 16)
 				{
+				system("cls");
 				aux->Player->pedirCarta(baraja);
 				cout << aux->Player->getNick() << endl;
 				cout << aux->Player->pedirMano() << endl;
-				Sleep(2000);
 				}
-
+			Sleep(2000);
 			while (ganar->next != nullptr)
 			{
 				if (ganar->Player->pedirMano()->getPuntos() > Dealer->pedirMano()->getPuntos() && ganar->Player->pedirMano()->getPuntos() < 21 || ganar->Player->pedirMano()->getPuntos() == 21)
@@ -298,6 +298,7 @@ void juego::Mjugadores(short int jugadores){
 					case 'G':
 					case 'g':
 					{
+						system("cls");
 						std::string nombreP;
 						cout << "Desea Guardar esta partida?Digite nombre de la partida para guardarla \n Digite 0 para cancelar" << endl;
 						cin >> nombreP;
@@ -344,7 +345,6 @@ void juego::Mjugadores(short int jugadores){
 			turno = 0;
 		
 	} while (hayganador!=true && salir==false);
-
 }
 
 

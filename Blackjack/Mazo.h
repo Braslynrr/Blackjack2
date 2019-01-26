@@ -13,6 +13,7 @@ public:
 	~Mazo();
 	friend std::ostream& operator<<(std::ostream&, Mazo *);
 	void inicializar();
+	void reiniciaCA();
 	void intercambiar(short int,short int);
 	short int BuscarCarta(char,short int);
 	void barajar();
