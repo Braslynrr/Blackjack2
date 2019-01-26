@@ -67,14 +67,13 @@ void Mazo::inicializar()
 
 void Mazo::intercambiar(short int Pos1, short int Pos2)
 {
-	if (Pos1 == Pos2)
+	if (Pos1 != Pos2)
 	{
-		Pos1++;
+		carta* aux = cartas[Pos1];
+		cartas[Pos1] = cartas[Pos2];
+		cartas[Pos2] = aux;
+		aux = nullptr;
 	}
-	carta* aux = cartas[Pos1];
-	cartas[Pos1] = cartas[Pos2];
-	cartas[Pos2] = aux;
-	aux = nullptr;
 }
 
 short int Mazo::BuscarCarta(char Pa, short int Num)

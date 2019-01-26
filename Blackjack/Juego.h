@@ -25,7 +25,6 @@ private:
 	short int marcapasos;
 public:
 	juego();
-	juego(std::string);
 	~juego();
 	bool cargarPartida(std::string);
 	void jugar();

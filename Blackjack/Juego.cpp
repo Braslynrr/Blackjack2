@@ -10,22 +10,6 @@ juego::juego()
 	preparativo = true;
 }
 
-juego::juego(std::string Nombre)
-{
-	//std::ifstream handle;
-
-	//handle.open(Nombre+=".txt");
-	//
-	//char m, s, k; //Temporales para dejar la estructura de lectura;
-
-	//	handle >> s;
-	//	handle >> k;
-	//	handle >> m;
-
-
-	//handle.close();
-}
-
 juego::~juego()
 {
 	delete listaJugadores;
@@ -38,7 +22,8 @@ bool juego::cargarPartida(std::string Nombre)
 	handle.open(Nombre += ".txt", std::ios::in);
 	if (handle.fail())
 	{
-		std::cout << "Error al crear\n";
+		std::cout << "Error al cargar partida -- No existe partida guarda\n";
+		handle.close();
 		return false;
 	}
 	//ahora si la inclusion de archivos
@@ -131,9 +116,9 @@ void juego::jugar()
 					preparativo = true;
 					newplayer = new dealer;
 					listaJugadores->insertar(newplayer);
-
 					Mjugadores(jugadores);
 					listaJugadores->borrar();
+					baraja->barajar();
 				}
 				system("cls");
 			break;
@@ -144,11 +129,12 @@ void juego::jugar()
 			cout << "Digite el nombre del archivo que desea Cargar Partida\n El nombre debe ser exactamente igual" << endl;
 			preparativo = false;
 			cin >> Partida;
-			cargarPartida(Partida);
-			jugadores = listaJugadores->Cantidad();
-
-			Mjugadores(jugadores-1);
-			listaJugadores->borrar();
+			if (cargarPartida(Partida)) {
+				jugadores = listaJugadores->Cantidad();
+				Mjugadores(jugadores - 1);
+				listaJugadores->borrar();
+				
+			}
 		}
 			break;
 		case 's':
@@ -164,8 +150,6 @@ void juego::jugar()
 		}
 
 	} while (salir == false);
-
-
 
 }
 
@@ -231,15 +215,21 @@ void juego::Mjugadores(short int jugadores){
 			
 			cout << aux->Player->getNick() << endl;
 			cout << aux->Player->pedirMano() << endl;
-			
-			/*cout<<"puntos: "<< Dealer->pedirMano()->getCarta(0)->getvalorClasico()<<endl;*/
-
+			cout<<"puntos: "<< Dealer->pedirMano()->getCarta(0)->getvalorClasico()<<endl;
+			Sleep(2000);
+			system("cls");
 			// AQUI EMPIEZA LO QUE AGREGUE
-			cout << "Puntos" << Dealer->pedirMano()->getPuntos()<<"\n\n\n";
+			cout<<Dealer->getNick() << endl;
+			Dealer->volteaSegunda();
+			cout << Dealer->pedirMano()<<endl;
+			cout << "Puntos: " << Dealer->pedirMano()->getPuntos()<<"\n\n\n";
 				
 			while (Dealer->pedirMano()->getPuntos() <= 16)
 				{
 				aux->Player->pedirCarta(baraja);
+				cout << aux->Player->getNick() << endl;
+				cout << aux->Player->pedirMano() << endl;
+				Sleep(2000);
 				}
 
 			while (ganar->next != nullptr)
@@ -257,7 +247,7 @@ void juego::Mjugadores(short int jugadores){
 				ganar = ganar->next;
 			}
 			system("pause");
-
+			hayganador = true;
 			//AQUI TERMINA :U
 			
 		}else{
@@ -348,8 +338,6 @@ void juego::Mjugadores(short int jugadores){
 		/*Dealer->volteaSegunda();
 		cout<<Dealer->pedirMano()->getPuntos();*/
 
-		Dealer->volteaSegunda();
-		cout << "puntos: "<<Dealer->pedirMano()->getPuntos();
 		 if (marcapasos == jugadores)
 			jugadores++;
 		if(turno==jugadores)
