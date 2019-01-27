@@ -1,7 +1,0 @@
-6 paco 2 C 8 D 3 0
-cacao 2 D 4 D 5 0
-coco 2 T 12 D 10 0
-jajaj 2 T 7 D 2 0
-pene 2 D 7 E 1 0
-Dealer 2 T 2 E 3 
-0 0

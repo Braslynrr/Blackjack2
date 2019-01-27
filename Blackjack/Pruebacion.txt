@@ -1,5 +1,0 @@
-4 Paco 2 D 13 D 1 0
-Andre 2 D 12 T 5 0
-ernesto 2 C 12 D 7 0
-Dealer 2 E 8 C 8 
-0 0

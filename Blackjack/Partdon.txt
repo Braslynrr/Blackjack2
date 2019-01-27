@@ -1,4 +1,0 @@
-3 Brazza 2 E 10 D 1 1
-Enroque 3 T 6 C 8 E 5 0
-Dealer 2 C 11 D 5 
-1

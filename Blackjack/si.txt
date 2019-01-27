@@ -1,5 +1,0 @@
-4 Paco1 2 T 12 T 7 1
-Paco 2 D 3 E 1 0
-2 2 T 6 D 5 0
-Dealer 2 D 6 D 9 
-1 1

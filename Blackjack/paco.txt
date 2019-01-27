@@ -1,4 +1,0 @@
-3 Paco 2 T 10 C 9 0
-Pacoo 2 D 9 E 6 0
-Dealer 2 E 1 D 6 
-0 0

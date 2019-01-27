@@ -158,6 +158,36 @@ void juego::jugar()
 
 }
 
+bool juego::DealerPide(short int jugs,short int pta)//fASE DE PRUEBA
+{
+		short int jt = 1;
+		Nodo* tmp = listaJugadores->getinicio();
+		short int media = 0;
+		if (jugs == 1) {//funcion de jugador unico
+			if (tmp->Player->pedirMano()->getPuntos() > pta)
+				return  true;
+		}else {
+
+			while (jt < jugs+1 && tmp!=nullptr) {//crea el numero de jugadores que estan por encima del dealer
+				if (tmp->Player->pedirMano()->getPuntos() > pta && tmp->Player->pedirMano()->getPuntos()<22)
+				{
+					media++;
+					jt++;
+				}
+				tmp = tmp->next;
+			}
+			if (media==jugs) {//si todos son mayores a el pide carta 
+				return true;
+			}else {
+				if ((media * 100) / jugs > 50 && jugs>2){//si mas de la mitad estan encima pide carta.
+					return true;
+				}
+			}
+			
+		}
+	return false;
+}
+
 void juego::guardarPartida(std::string nombre)
 {
 
@@ -228,8 +258,10 @@ void juego::Mjugadores(short int jugadores){
 			cout<<Dealer->getNick() << endl;
 			Dealer->volteaSegunda();
 			cout << Dealer->pedirMano()<<endl;
-			while (Dealer->pedirMano()->getPuntos() <= 16)
-				{
+			short int compD, compP;
+			
+			while (DealerPide(jugadores-1, Dealer->pedirMano()->getPuntos())==true)//Me tome la molestia de mejorar la pedition de cartas si no es valido 
+				{//favor cambiar lo del while por Dealer->pedirMano()->getPuntos()<17 por favor :c.
 				system("cls");
 				aux->Player->pedirCarta(baraja);
 				cout << aux->Player->getNick() << endl;
@@ -238,9 +270,9 @@ void juego::Mjugadores(short int jugadores){
 				}
 			cout << "Puntos: " << Dealer->pedirMano()->getPuntos() << "\n\n\n";
 			Sleep(2000);
-			short int compD, compP;
+			
 			compD = Dealer->pedirMano()->getPuntos();
-
+			compD = Dealer->pedirMano()->getPuntos();
 			while (ganar->next != nullptr)
 			{
 				compP= ganar->Player->pedirMano()->getPuntos();

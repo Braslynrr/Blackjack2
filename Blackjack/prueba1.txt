@@ -1,4 +1,0 @@
-3 BRazza 3 D 5 D 6 D 1 0
-paco 3 D 11 C 3 D 9 1
-Dealer 2 T 8 D 7 
-0 1

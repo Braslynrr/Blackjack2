@@ -28,6 +28,7 @@ public:
 	~juego();
 	bool cargarPartida(std::string);
 	void jugar();
+	bool DealerPide(short int,short int);
 	void guardarPartida(std::string);
 	void Mjugadores(short int);
 };

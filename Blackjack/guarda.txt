@@ -1,9 +1,0 @@
-8 samuel 3 D 11 E 2 T 9 1
-pollo 3 D 7 T 4 T 2 0
-paco 3 D 3 E 7 E 1 1
-andre 2 D 2 C 8 0
-pirlo 2 C 10 D 12 0
-yoda 2 C 12 D 10 0
-jonas 2 D 4 D 1 0
-Dealer 2 E 3 E 4 
-3 2
