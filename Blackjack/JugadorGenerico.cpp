@@ -13,9 +13,3 @@ std::string jugadorGenerico::getNick()
 {
 	return nickname;
 }
-
-
-bool jugadorGenerico::sePaso()
-{
-	return false;
-}
