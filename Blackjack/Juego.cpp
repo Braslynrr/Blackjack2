@@ -98,7 +98,7 @@ void juego::jugar()
 					std::cin.ignore(1024, '\n');
 					Sleep(2000);
 				}
-			} while (jugadores < 0 && jugadores<8);
+			} while (jugadores < 0 || jugadores>7);
 
 				if (jugadores == 0) {
 
@@ -109,6 +109,8 @@ void juego::jugar()
 					{
 						cout << "Introduzca su Nickname jugador" << i + 1<<endl;
 						std::cin>>nombre;
+						if (nombre == "Dealer")
+							nombre +="1";
 						newplayer = new jugador(nombre);
 						listaJugadores->insertar(newplayer);
 
@@ -116,6 +118,8 @@ void juego::jugar()
 					preparativo = true;
 					newplayer = new dealer;
 					listaJugadores->insertar(newplayer);
+					turno = 0;
+					marcapasos = 0;
 					Mjugadores(jugadores);
 					listaJugadores->borrar();
 					baraja->barajar();
@@ -217,33 +221,39 @@ void juego::Mjugadores(short int jugadores){
 			cout << aux->Player->getNick() << endl;
 			cout << aux->Player->pedirMano() << endl;
 			cout<<"puntos: "<< Dealer->pedirMano()->getCarta(0)->getvalorClasico()<<endl;
+			cout << "Dealer volteara su carta" << endl;
 			Sleep(2000);
 			system("cls");
 			// AQUI EMPIEZA LO QUE AGREGUE
 			cout<<Dealer->getNick() << endl;
 			Dealer->volteaSegunda();
 			cout << Dealer->pedirMano()<<endl;
-			cout << "Puntos: " << Dealer->pedirMano()->getPuntos()<<"\n\n\n";
 			while (Dealer->pedirMano()->getPuntos() <= 16)
 				{
 				system("cls");
 				aux->Player->pedirCarta(baraja);
 				cout << aux->Player->getNick() << endl;
 				cout << aux->Player->pedirMano() << endl;
+				cout << "Dealer pidio cartas" << endl;
 				}
+			cout << "Puntos: " << Dealer->pedirMano()->getPuntos() << "\n\n\n";
 			Sleep(2000);
+			short int compD, compP;
+			compD = Dealer->pedirMano()->getPuntos();
+
 			while (ganar->next != nullptr)
 			{
-				if (ganar->Player->pedirMano()->getPuntos() > Dealer->pedirMano()->getPuntos() && ganar->Player->pedirMano()->getPuntos() < 21 || ganar->Player->pedirMano()->getPuntos() == 21)
-					cout << ganar->Player->getNick() << " Le gano a la casa\n";
-				else if (Dealer->pedirMano()->getPuntos() < 21 || Dealer->pedirMano()->getPuntos() == 21 && Dealer->pedirMano()->getPuntos() > ganar->Player->pedirMano()->getPuntos())
-					cout << "La casa le gano a: " << ganar->Player->getNick() << "\n";
-				else if (Dealer->pedirMano()->getPuntos() > 21 && ganar->Player->pedirMano()->getPuntos() > 21)
-					cout << "No gana el Dealer y tampoco: " << ganar->Player->getNick();
-				else if (Dealer->pedirMano()->getPuntos() == ganar->Player->pedirMano()->getPuntos())
-					cout << "Dealer y " << ganar->Player->getNick() << " empataron";
-				else if (Dealer->pedirMano()->getPuntos() > 21 && ganar->Player->pedirMano()->getPuntos() < 21)
-					cout << ganar->Player->getNick() << " le gana a la casa";
+				compP= ganar->Player->pedirMano()->getPuntos();
+				if (compP > compD && compP < 22)// || compD == 21 && compD<compP && compP<22
+					cout << ganar->Player->getNick() << " Le gano a la casa con " << ganar->Player->pedirMano()->getPuntos()<<"\n";
+				else if (compD < 22 && compD > compP || compP>21 && compD<22)
+					cout << "La casa le gano a: " << ganar->Player->getNick() <<" con "<<compP<< "\n";
+				else if (compD > 21 &&compP > 21)
+					cout << "No gana el Dealer y tampoco gana -> " << ganar->Player->getNick()<<"\n";
+				else if (compD == compP)
+					cout << "Dealer y " << ganar->Player->getNick() << " empataron con "<<ganar->Player->pedirMano()->getPuntos()<<endl;
+				else if (compD > 21 && compP < 22)
+					cout << ganar->Player->getNick() << " le gana a la casa con "<<ganar->Player->pedirMano()->getPuntos()<<endl;
 				ganar = ganar->next;
 			}
 			system("pause");
