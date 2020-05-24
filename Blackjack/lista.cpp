@@ -56,13 +56,12 @@ void lista::borrar()
 	}
 	else {
 		struct Nodo*aux;
-		while (inicio!=false)
+		while (inicio!=nullptr)
 		{
 			aux = inicio;
 			inicio = inicio->next;
 			delete aux;
 		}
-		std::cout << "Lista borrada \n" << std::endl;
 	}
 	
 }
